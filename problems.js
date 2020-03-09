@@ -10,3 +10,20 @@ function twoNumberSum(arr, target) {
   }
   return [];
 }
+
+function findValuehelper(tree, target, close) {
+  let current = tree;
+  while (current !== null) {
+    if (Math.abs(target - close) > Math.abs(target - current.value)) {
+      close = current.value;
+    }
+    if (target < current.value) {
+      current = current.left;
+    } else if (target > current.value) {
+      current = current.right;
+    } else {
+      break;
+    }
+  }
+  return close
+} 
