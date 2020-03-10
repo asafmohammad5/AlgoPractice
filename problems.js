@@ -11,6 +11,10 @@ function twoNumberSum(arr, target) {
   return [];
 }
 
+function findClosestVale(tree, target) {
+  return findValuehelper(tree, target, Infinity)
+}
+
 function findValuehelper(tree, target, close) {
   let current = tree;
   while (current !== null) {
@@ -27,3 +31,4 @@ function findValuehelper(tree, target, close) {
   }
   return close
 } 
+
