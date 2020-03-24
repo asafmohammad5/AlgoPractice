@@ -32,6 +32,7 @@ function findValuehelper(tree, target, close) {
   return close
 } 
 
+
 function binarySearch(array, target) {
   if (array.length === 0) return -1;
 
@@ -44,5 +45,18 @@ function binarySearch(array, target) {
   } else {
     return midpoint;
   }
+}
+
+function invertBinaryTree(tree) {
+  if (tree === null) return;
+  swapper(tree);
+  invertBinaryTree(tree.left);
+  invertBinaryTree(tree.right)
+}
+
+function swapper(tree) {
+  const left = tree.left;
+  tree.left = tree.right;
+  tree.right = left;
 }
 
