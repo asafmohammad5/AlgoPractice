@@ -60,3 +60,42 @@ function swapper(tree) {
   tree.right = left;
 }
 
+
+var judgeCircle = function (moves) {
+  let moveX = 0;
+  let moveY = 0;
+
+  let mid = Math.floor(moves.length / 2);
+
+  if (mid === 0) {
+    mid = 1;
+  }
+
+  let right = moves.slice(0, mid);
+  let left = moves.slice(mid);
+
+  for (i = 0; i < right.length; i++) {
+    if (right[i] === "U") {
+      moveY++;
+    } else if (right[i] === "D") {
+      moveY--;
+    } else if (right[i] === "R") {
+      moveX++;
+    } else if (right[i] === "L") {
+      moveX--;
+    }
+  }
+
+  for (i = 0; i < left.length; i++) {
+    if (left[i] === "U") {
+      moveY++;
+    } else if (left[i] === "D") {
+      moveY--;
+    } else if (left[i] === "R") {
+      moveX++;
+    } else if (left[i] === "L") {
+      moveX--;
+    }
+  }
+  return moveX === 0 && moveY === 0;
+};
