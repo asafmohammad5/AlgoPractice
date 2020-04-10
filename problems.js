@@ -99,3 +99,21 @@ var judgeCircle = function (moves) {
   }
   return moveX === 0 && moveY === 0;
 };
+
+var findNumbers = function (nums) {
+  let j = nums.length - 1;
+  let count = 0;
+  for (i = 0; i < nums.length && i < j; i++) {
+    if (nums[i].toString().length % 2 === 0) {
+      count++;
+    }
+    if (j !== i) {
+      if (nums[j].toString().length % 2 === 0) {
+        count++;
+        j--;
+      }
+    }
+
+  }
+  return count;
+};
