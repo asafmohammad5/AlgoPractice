@@ -117,3 +117,19 @@ var findNumbers = function (nums) {
   }
   return count;
 };
+
+var decompressRLElist = function (nums) {
+
+  if (nums.length <= 2) return helper(nums[1], nums[0]);
+  return helper(nums[1], nums[0]).concat(decompressRLElist(nums.slice(2)))
+}
+
+var helper = function (num, times) {
+  const arr = [];
+  let i = 1;
+  while (i <= times) {
+    arr.push(num);
+    i++;
+  }
+  return arr;
+}
