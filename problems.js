@@ -124,7 +124,7 @@ var decompressRLElist = function (nums) {
   return helper(nums[1], nums[0]).concat(decompressRLElist(nums.slice(2)))
 }
 
-var helper = function (num, times) {
+var helpeDecompress = function (num, times) {
   const arr = [];
   let i = 1;
   while (i <= times) {
@@ -132,4 +132,28 @@ var helper = function (num, times) {
     i++;
   }
   return arr;
+}
+
+var createTargetArray = function (nums, index) {
+  let target = [];
+  let i = 0;
+  while (i < nums.length) {
+    let num = nums[i];
+    let idx = index[i];
+    if (target[idx] === undefined) {
+      target[idx] = num;
+    } else {
+      target = helper(target, idx, num)
+    }
+    i++;
+  }
+  return target;
+};
+
+var helperTarget = function (array, index, num) {
+  const tempL = array.slice(0, index);
+  const tempR = array.slice(index);
+  tempL[index] = num;
+  return tempL.concat(tempR);
+
 }
