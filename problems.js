@@ -157,3 +157,16 @@ var helperTarget = function (array, index, num) {
   return tempL.concat(tempR);
 
 }
+
+var defangIPaddr = function (address) {
+  const dot = ".";
+  let newAddr = "";
+  for (i = 0; i < address.length; i++) {
+    if (address[i] === dot) {
+      newAddr += "[.]";
+    } else {
+      newAddr += address[i]
+    }
+  }
+  return newAddr;
+};
