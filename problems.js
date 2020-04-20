@@ -221,3 +221,11 @@ var minSubsequence = function (nums) {
     if (curSum > sum - curSum) return nums.slice(0, i + 1);
   }
 };
+
+var sortedSquares = function (A) {
+  squares = [];
+  for (var i = 0; i < A.length; i++) {
+    squares.push(A[i] * A[i]);
+  }
+  return squares.sort((a, b) => a - b);
+}
