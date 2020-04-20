@@ -171,6 +171,20 @@ var defangIPaddr = function (address) {
   return newAddr;
 };
 
+var heightChecker = function (heights) {
+  const ordered = heights.slice().sort((a, b) => a - b);
+  let count = 0;
+  for (let i = 0; i < heights.length; i++) {
+    if (heights[i] !== ordered[i]) {
+      count++
+    }
+  }
+  console.log(ordered)
+  console.log(heights)
+  return count;
+
+};
+
 var numberOfSteps = function (num, steps = 0) {
   if (num === 0) return steps;
 
