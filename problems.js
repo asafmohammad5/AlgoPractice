@@ -208,3 +208,16 @@ var numberOfSteps = function (num, steps = 0) {
   }
 
 };
+
+var minSubsequence = function (nums) {
+  if (nums.length === 1) return nums;
+
+  let curSum = 0;
+  const sum = nums.reduce((acc, cur) => acc + cur);
+  nums.sort((a, b) => a < b ? 1 : -1);
+
+  for (let i = 0; i < nums.length; i++) {
+    curSum += nums[i];
+    if (curSum > sum - curSum) return nums.slice(0, i + 1);
+  }
+};
