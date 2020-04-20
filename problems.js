@@ -185,6 +185,19 @@ var heightChecker = function (heights) {
 
 };
 
+var findTheDistanceValue = function (arr1, arr2, d) {
+  let count = 0;
+  for (let num of arr1) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (Math.abs(num - arr2[j]) <= d)
+        break
+      if (j === arr2.length - 1)
+        count++
+    }
+  }
+  return count
+};
+
 var numberOfSteps = function (num, steps = 0) {
   if (num === 0) return steps;
 
