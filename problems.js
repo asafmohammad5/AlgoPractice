@@ -331,3 +331,9 @@ var helperSum = function (array) {
   }
 
 }
+
+var peakIndexInMountainArray = function (A) {
+  for (let i = 1; i < A.length; i++) {
+    if (A[i] > A[i - 1] && A[i] > A[i + 1]) return i;
+  }
+};
