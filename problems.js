@@ -250,3 +250,34 @@ var luckyNumbers = function (matrix) {
 function getcolumn(arr, i) {
   return arr.map(subarr => subarr[i]);
 };
+
+var countCharacters = function (words, chars) {
+
+  let count = 0
+
+  let hash = hasher(chars)
+
+  for (let i = 0; i < words.length; i++) {
+    let boolean = true
+    let temp = hasher(words[i])
+    for (let key in temp) {
+      if (!hash[key] || hash[key] < temp[key]) {
+        boolean = false
+      }
+    }
+    boolean && (count += words[i].length)
+  }
+  return count
+};
+
+const hasher = (word) => {
+  let hash = {}
+  for (let i = 0; i < word.length; i++) {
+    if (hash[word[i]]) {
+      hash[word[i]]++
+    } else {
+      hash[word[i]] = 1
+    }
+  }
+  return hash
+}
