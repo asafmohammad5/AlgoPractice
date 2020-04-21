@@ -281,3 +281,21 @@ const hasher = (word) => {
   }
   return hash
 }
+
+var diStringMatch = function (S) {
+  let max = S.length
+  let min = 0
+  const arr = []
+  for (let lett of S) {
+    if (lett === 'D') {
+      arr.push(max)
+      max--
+    }
+    else if (lett === 'I') {
+      arr.push(min)
+      min++
+    }
+  }
+  arr.push(max)
+  return arr
+};
