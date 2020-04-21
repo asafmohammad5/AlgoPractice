@@ -236,10 +236,10 @@ var luckyNumbers = function (matrix) {
   for (var i = 0; i < matrix.length; i++) {
     mins.push(Math.min(...matrix[i]));
   }
-  
+
   const maxs = [];
   for (i = 0; i < matrix[0].length; i++) {
-    maxs.push(Math.max(...arrayColumn(matrix, i)));
+    maxs.push(Math.max(...getcolumn(matrix, i)));
   }
 
 
@@ -247,6 +247,6 @@ var luckyNumbers = function (matrix) {
 };
 
 
-function arrayColumn(arr, i) {
+function getcolumn(arr, i) {
   return arr.map(subarr => subarr[i]);
 };
