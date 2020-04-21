@@ -229,3 +229,24 @@ var sortedSquares = function (A) {
   }
   return squares.sort((a, b) => a - b);
 }
+
+var luckyNumbers = function (matrix) {
+ 
+  const mins = [];
+  for (var i = 0; i < matrix.length; i++) {
+    mins.push(Math.min(...matrix[i]));
+  }
+  
+  const maxs = [];
+  for (i = 0; i < matrix[0].length; i++) {
+    maxs.push(Math.max(...arrayColumn(matrix, i)));
+  }
+
+
+  return mins.filter(value => maxs.includes(value));
+};
+
+
+function arrayColumn(arr, i) {
+  return arr.map(subarr => subarr[i]);
+};
