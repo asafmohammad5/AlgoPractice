@@ -299,3 +299,35 @@ var diStringMatch = function (S) {
   arr.push(max)
   return arr
 };
+
+var arrayPairSum = function (nums) {
+  if (nums.length === 2) return Math.min(...nums)
+  let mid = nums.length / 2;
+  console.log(mid)
+
+  if (nums.length === 4) {
+    nums.sort();
+  }
+  console.log(nums)
+
+  let left = nums.slice(0, mid);
+  let right = nums.slice(mid)
+  console.log(left)
+  console.log(right)
+
+  return (helperSum(left) + helperSum(right));
+};
+
+var helperSum = function (array) {
+  array.sort();
+  let i = 0;
+  let num = 0;
+  while (i < array.length) {
+    if (array[i] > num) {
+      return array[i];
+    } else {
+      i++;
+    }
+  }
+
+}
