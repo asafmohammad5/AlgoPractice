@@ -337,3 +337,29 @@ var peakIndexInMountainArray = function (A) {
     if (A[i] > A[i - 1] && A[i] > A[i + 1]) return i;
   }
 };
+
+var uniqueOccurrences = function (arr) {
+  let hash = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!hash[arr[i]]) {
+      hash[arr[i]] = 1
+    } else {
+      hash[arr[i]]++;
+    }
+  }
+
+  let array = [];
+
+  for (let key of Object.keys(hash)) {
+
+    if (!array.includes(hash[key])) {
+      array.push(hash[key])
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+
+};
