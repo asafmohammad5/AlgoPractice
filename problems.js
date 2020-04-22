@@ -363,3 +363,20 @@ var uniqueOccurrences = function (arr) {
   return true;
 
 };
+
+var RecentCounter = function () {
+  this.que = []
+};
+
+
+RecentCounter.prototype.ping = function (t) {
+  this.que.push(t);
+
+  console.log(this.que)
+
+  while (this.que[0] < t - 3000) {
+    console.log(this.que[0])
+    this.que.shift();
+  }
+  return this.que.length;
+};
