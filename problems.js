@@ -380,3 +380,19 @@ RecentCounter.prototype.ping = function (t) {
   }
   return this.que.length;
 };
+
+var postorder = function (root) {
+  const arr = [];
+
+  const findNodes = (node) => {
+    if (!node) return;
+
+    node.children.forEach((child) => findNodes(child));
+
+    arr.push(node.val);
+  }
+
+  findNodes(root);
+
+  return arr;
+};
