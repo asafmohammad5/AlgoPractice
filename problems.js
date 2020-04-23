@@ -503,3 +503,14 @@ var getDecimalValue = function (head) {
   return num
 };
 
+const minTimeToVisitAllPoints = points =>
+  points.reduce(
+    (acc, [x, y], i) =>
+      i === points.length - 1 ? acc
+        : acc +
+        Math.max(
+          Math.abs(x - points[i + 1][0]),
+          Math.abs(y - points[i + 1][1]),
+        ), 0,
+  );
+
