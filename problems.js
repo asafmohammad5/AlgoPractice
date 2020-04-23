@@ -472,5 +472,34 @@ var rangeSumBST = function (root, L, R) {
 var search = function (n, L, R) {
   if (!n) return 0;
   return (n.val >= L && n.val <= R ? n.val : 0) + search(n.left, L, R) + search(n.right, L, R)
-}
+};
+
+var getDecimalValue = function (head) {
+  let num = 0;
+  const arr = [];
+  let node = head;
+  while (node) {
+    if (node.val === 1) {
+      arr.push(1);
+    } else {
+      arr.push(0);
+    }
+    node = node.next;
+  }
+
+  let numD = 1;
+  console.log(arr)
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    console.log(i)
+    console.log(numD)
+    if (arr[i] === 1) {
+      num += numD;
+      numD = numD * 2;
+    } else {
+      numD = numD * 2
+    }
+  }
+  return num
+};
 
