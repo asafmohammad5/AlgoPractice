@@ -414,3 +414,31 @@ var minDeletionSize = function (A) {
   console.log(arr)
   return num;
 };
+
+var searchBST = function (root, val) {
+  if (root === null) return null;
+
+  if (val === root.val) return root;
+
+  if (val > root.val) return searchBST(root.right, val);
+
+  return searchBST(root.left, val);
+};
+
+var numJewelsInStones = function (J, S) {
+  let count = 0;
+  const hash = {};
+  for (i = 0; i < S.length; i++) {
+    if (!hash[S[i]]) {
+      hash[S[i]] = 1;
+    } else {
+      hash[S[i]] += 1;
+    }
+  }
+  for (i = 0; i < J.length; i++) {
+    if (hash[J[i]]) {
+      count += (hash[J[i]])
+    }
+  }
+  return count;
+};
