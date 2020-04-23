@@ -464,3 +464,13 @@ var smallerNumbersThanCurrent = function (nums) {
   return numS;
 };
 
+var rangeSumBST = function (root, L, R) {
+
+  return search(root, L, R)
+};
+
+var search = function (n, L, R) {
+  if (!n) return 0;
+  return (n.val >= L && n.val <= R ? n.val : 0) + search(n.left, L, R) + search(n.right, L, R)
+}
+
