@@ -442,3 +442,25 @@ var numJewelsInStones = function (J, S) {
   }
   return count;
 };
+
+var smallerNumbersThanCurrent = function (nums) {
+  const numS = [];
+  let Idx = 0;
+  const arr = nums.slice();
+  let numL = nums.length;
+
+  while (numL) {
+    const num = arr.shift();
+    numS[Idx] = 0;
+    for (i = 0; i < arr.length; i++) {
+      if (num > arr[i]) {
+        numS[Idx] += 1;
+      }
+    }
+    arr.push(num);
+    numL--;
+    Idx++;
+  }
+  return numS;
+};
+
