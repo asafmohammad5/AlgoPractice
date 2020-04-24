@@ -555,3 +555,17 @@ var maximum69Number = function (num) {
   return num;
 };
 
+var countNegatives = function (grid) {
+  let count = 0;
+
+  for (let arr of grid) {
+    if (Array.isArray(arr)) {
+      count += countNegatives(arr)
+    } else {
+      count += (arr < 0 ? 1 : 0);
+    }
+  }
+
+  return count;
+};
+
