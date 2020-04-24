@@ -569,3 +569,23 @@ var countNegatives = function (grid) {
   return count;
 };
 
+var removeOuterParentheses = function (S) {
+  let arr = new Array();
+  let res = "";
+  for (let i = 1; i < S.length; i++) {
+    if (S[i] === '(') {
+      arr.push(S[i]);
+      res += S[i];
+    }
+    else if (arr.length > 0) {
+      arr.pop();
+      res += S[i];
+    }
+    else {
+      i++;
+    }
+
+  }
+  return res;
+};
+
