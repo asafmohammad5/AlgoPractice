@@ -514,3 +514,20 @@ const minTimeToVisitAllPoints = points =>
         ), 0,
   );
 
+var toLowerCase = function (str) {
+  let count = 0;
+  let str1 = "";
+  let number = str.charCodeAt(str[count]);
+  let current;
+  while (count < str.length) {
+    current = str[count];
+    if (number >= 65 && number <= 90) {
+      str1 += current.toLowerCase();
+    } else {
+      str1 += current;
+    }
+    count++;
+  }
+  return str1;
+};
+
