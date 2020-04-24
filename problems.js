@@ -543,3 +543,15 @@ var replaceElements = function (arr) {
   return arr;
 };
 
+var maximum69Number = function (num) {
+  var str = num.toString();
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === '6') {
+      let x = str.substring(0, i) + '9' + str.substring(i + 1, str.length);
+      return parseInt(x, 10);
+    }
+  }
+
+  return num;
+};
+
