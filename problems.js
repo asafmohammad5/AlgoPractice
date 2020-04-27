@@ -589,3 +589,21 @@ var removeOuterParentheses = function (S) {
   return res;
 };
 
+var oddCells = function (n, m, indices) {
+  let num = 0;
+  let row = new Array(n).fill(0);
+  let col = new Array(m).fill(0);
+  indices.forEach(set => {
+    row[set[0]]++;
+    col[set[1]]++;
+  });
+  console.log(row)
+  console.log(col)
+  row.forEach(item => {
+    for (let i = 0; i < col.length; i++) {
+      if ((item + col[i]) % 2 !== 0) { num++ }
+    }
+  });
+  return num;
+};
+
