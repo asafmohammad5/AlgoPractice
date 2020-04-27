@@ -616,4 +616,46 @@ var oddCells = function (n, m, indices) {
 // Where area > 3000000 or population > 25000000
 // order by name ASC
 
+var uniqueMorseRepresentations = function (words) {
+  let table = {
+    a: ".-",
+    b: "-...",
+    c: "-.-.",
+    d: "-..",
+    e: ".",
+    f: "..-.",
+    g: "--.",
+    h: "....",
+    i: "..",
+    j: ".---",
+    k: "-.-",
+    l: ".-..",
+    m: "--",
+    n: "-.",
+    o: "---",
+    p: ".--.",
+    q: "--.-",
+    r: ".-.",
+    s: "...",
+    t: "-",
+    u: "..-",
+    v: "...-",
+    w: ".--",
+    x: "-..-",
+    y: "-.--",
+    z: "--.."
+  }
+  let res = []
+  for (let i = 0; i < words.length; i++) {
+    let temp = ''
+    for (let j = 0; j < words[i].length; j++) {
+      temp = temp.concat(table[words[i][j]])
+    }
+    res.push(temp)
+  }
+  let setN = new Set(res)
+  return setN.size
+};
+
+
 
