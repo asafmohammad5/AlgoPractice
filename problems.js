@@ -699,5 +699,14 @@ var freqAlphabets = function (s) {
   return result
 };
 
+let sumZero = function (n) {
+  let arr = []
+  if (n % 2 === 1) arr.push(0);
+  for (let i = 1; i <= n / 2; i++) {
+    arr.push(i, -i)
+  }
+  return arr
+};
+
 
 
