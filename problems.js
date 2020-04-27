@@ -607,3 +607,13 @@ var oddCells = function (n, m, indices) {
   return num;
 };
 
+// Leet Code problem 595(SQL)
+// Select
+// name,
+//   population,
+//   area
+// from World
+// Where area > 3000000 or population > 25000000
+// order by name ASC
+
+
