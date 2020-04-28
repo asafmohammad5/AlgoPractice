@@ -712,5 +712,31 @@ var generateTheString = function (n) {
   return n % 2 !== 0 ? [...Array(n).fill('a')].join('') : [...Array((n - 1)).fill('a'), 'b'].join('')
 };
 
+var sortString = function (s) {
+  if (s.length <= 1) {
+    return s;
+  }
+  var chars = Array(26).fill(0);
+  for (var char of s) {
+    chars[char.charCodeAt() - 97]++;
+  }
+  var result = "";
+  while (result.length < s.length) {
+    for (var i = 0; i <= 25; i++) {
+      if (chars[i]) {
+        chars[i]--;
+        result += String.fromCharCode(97 + i);
+      }
+    }
+    for (var i = 25; i >= 0; i--) {
+      if (chars[i]) {
+        chars[i]--;
+        result += String.fromCharCode(97 + i);
+      }
+    }
+  }
+  return result;
+};
+
 
 
