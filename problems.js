@@ -740,5 +740,7 @@ var sortString = function (s) {
 
 const flipAndInvertImage = A => A.map(e => e.reverse()).map(e => e.map(e => e ? 0 : 1));
 
-
-
+// Leetcode 627
+// update salary
+// set sex = 
+//     case when sex = 'f' then 'm' else 'f' end
