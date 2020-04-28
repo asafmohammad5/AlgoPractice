@@ -738,5 +738,7 @@ var sortString = function (s) {
   return result;
 };
 
+const flipAndInvertImage = A => A.map(e => e.reverse()).map(e => e.map(e => e ? 0 : 1));
+
 
 
