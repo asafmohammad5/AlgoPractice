@@ -708,5 +708,9 @@ let sumZero = function (n) {
   return arr
 };
 
+var generateTheString = function (n) {
+  return n % 2 !== 0 ? [...Array(n).fill('a')].join('') : [...Array((n - 1)).fill('a'), 'b'].join('')
+};
+
 
 
