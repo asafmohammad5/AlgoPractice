@@ -804,3 +804,7 @@ var preorder = function (root) {
   root.children.forEach(node => preorderOutput.push(...preorder(node)));
   return preorderOutput;
 };
+
+var reverseWords = function (s) {
+  return s.split(' ').map(item => item.split('').reverse().join('')).join(' ');
+};
