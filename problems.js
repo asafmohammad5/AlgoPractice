@@ -796,3 +796,11 @@ var repeatedNTimes = function (A) {
   }
 
 };
+
+var preorder = function (root) {
+  if (!root) return [];
+  const preorderOutput = [root.val];
+
+  root.children.forEach(node => preorderOutput.push(...preorder(node)));
+  return preorderOutput;
+};
