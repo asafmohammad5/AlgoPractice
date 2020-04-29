@@ -758,3 +758,21 @@ var sortArrayByParity = function (A) {
   }
   return [...even, ...odd];
 };
+
+var selfDividingNumbers = function (left, right) {
+
+  let arr = []
+
+  const divider = (num) => {
+    for (let i = 0; i < num.length; i++) {
+      if ( num % num[i] !== 0 && num[i] !== 0 ) return false
+    }
+    return true
+  }
+
+  for (let i = left; i <= right; i++) {
+    if (divider(i.toString())) arr.push(i)
+  }
+  return arr
+};
+
