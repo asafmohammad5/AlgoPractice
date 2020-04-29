@@ -785,3 +785,14 @@ var mergeTrees = function (t1, t2) {
   return t1
 
 };
+
+var repeatedNTimes = function (A) {
+  A.sort();
+
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] === A[i + 1]) {
+      return A[i];
+    }
+  }
+
+};
