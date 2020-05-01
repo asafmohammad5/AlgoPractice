@@ -866,3 +866,28 @@ var minStartValue = function (nums) {
     return Math.max(...val) > 0 ? Math.max(...val) : 1
   }
 };
+
+var sumRootToLeaf = function (root) {
+  var result = 0;
+  var path = [];
+  var traversal = function (node) {
+    if (node === null) {
+      return;
+    }
+
+    path.push(node.val);
+
+    if (node.left === null && node.right === null) {
+      result += parseInt(path.join(""), 2);
+    } else {
+      traversal(node.left);
+      traversal(node.right);
+    }
+
+    path.pop();
+  };
+
+  traversal(root);
+
+  return result;
+};
