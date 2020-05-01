@@ -808,3 +808,14 @@ var preorder = function (root) {
 var reverseWords = function (s) {
   return s.split(' ').map(item => item.split('').reverse().join('')).join(' ');
 };
+
+var reverseString = function (s) {
+  const arr = s.split('');
+
+  for (let i = 0, j = s.length - 1; i < j; i++, j--) {
+    arr[i] = s[j];
+    arr[j] = s[i];
+  }
+
+  return arr.join('');
+};
