@@ -848,3 +848,21 @@ var getDistance = function (i, S, C) {
 // where description != 'boring'
 // and(id % 2) != 0
 // order by rating desc
+
+var minStartValue = function (nums) {
+  let val = []
+  if (nums.length === 0) return 1
+  else if (nums.length === 1) {
+    if (nums[0] >= 0) {
+      return 1
+    } else {
+      return Math.abs(nums[0]) + 1
+    }
+  } else if (nums.length > 1) {
+    val.push(1 - nums[0])
+    for (let i = 1; i < nums.length; i++) {
+      val.push(val[i - 1] - nums[i])
+    }
+    return Math.max(...val) > 0 ? Math.max(...val) : 1
+  }
+};
