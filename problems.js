@@ -819,3 +819,26 @@ var reverseString = function (s) {
 
   return arr.join('');
 };
+
+var shortestToChar = function (S, C) {
+  let results = [];
+
+  for (let i = 0; i < S.length; i++) {
+    results.push(getDistance(i, S, C));
+  }
+
+  return results;
+};
+
+var getDistance = function (i, S, C) {
+  let index = 0;
+  while (i + index < S.length || i - index > -1) {
+    if (S[i + index] == C || S[i - index] == C) {
+      return index;
+    }
+
+    index++;
+  }
+
+  return index;
+}
