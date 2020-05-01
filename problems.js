@@ -842,3 +842,9 @@ var getDistance = function (i, S, C) {
 
   return index;
 }
+// Leetcode 620
+// select *
+//   from cinema
+// where description != 'boring'
+// and(id % 2) != 0
+// order by rating desc
