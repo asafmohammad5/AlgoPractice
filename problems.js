@@ -891,3 +891,31 @@ var sumRootToLeaf = function (root) {
 
   return result;
 };
+
+var subdomainVisits = function (cpdomains) {
+  let web = new Map();
+
+  for (d of cpdomains) {
+
+    let domains = d.split(" ");
+    let splitDomain = domains[1].split(".");
+
+    for (let i = 0; i < splitDomain.length; i++) {
+
+      let iDomain = splitDomain.slice(i).join(".");
+
+      if (web.has(iDomain))
+        web.set(iDomain, web.get(iDomain) + parseInt(domains[0], 10));
+      else
+        web.set(iDomain, parseInt(domains[0], 10));
+
+    }
+  }
+
+  let res = [];
+  for (w of web) {
+    res.push(w[1] + ' ' + w[0]);
+  }
+
+  return res;
+};
