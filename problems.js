@@ -919,3 +919,19 @@ var subdomainVisits = function (cpdomains) {
 
   return res;
 };
+
+var selfDividingNumbers = function (left, right) {
+  var out = [];
+  var temp = [];
+  var pass = true;
+  for (var i = left; i <= right; i++) {
+    temp = i.toString().split('')
+    pass = true
+    temp.forEach(e => {
+      if (i % e !== 0) pass = false
+    })
+    if (pass) out.push(i)
+  }
+
+  return out;
+};
