@@ -935,3 +935,22 @@ var selfDividingNumbers = function (left, right) {
 
   return out;
 };
+
+var removeDuplicates = function (S, bool = false) {
+
+  let str = ''
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === S[i + 1]) {
+      i += 2
+      bool = true
+    }
+
+    S[i] && (str += S[i])
+  }
+
+  if (bool === false) {
+    return str
+  }
+
+  return removeDuplicates(str, false)
+};
