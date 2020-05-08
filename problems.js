@@ -806,7 +806,20 @@ var preorder = function (root) {
 };
 
 var reverseWords = function (s) {
-  return s.split(' ').map(item => item.split('').reverse().join('')).join(' ');
+  let arr = s.split(" ");
+  let str = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i].split("").reverse().join("");
+    if (i < arr.length - 1) {
+      str += word + ' ';
+    } else {
+      str += word;
+    }
+
+
+  }
+  return str;
 };
 
 var reverseString = function (s) {
