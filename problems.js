@@ -967,3 +967,27 @@ var removeDuplicates = function (S, bool = false) {
 
   return removeDuplicates(str, false)
 };
+
+var relativeSortArray = function (arr1, arr2) {
+
+  let newArr = [];
+
+  for (var i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+
+      let idx = arr1.indexOf(arr2[i]);
+
+      let elem = arr1.splice(idx, 1);
+      newArr.push(elem);
+    }
+
+  }
+
+  arr1.sort(function (a, b) {
+    return a - b;
+  });
+  newArr = newArr.concat(arr1);
+
+  return newArr;
+
+};
