@@ -991,3 +991,19 @@ var relativeSortArray = function (arr1, arr2) {
   return newArr;
 
 };
+
+var findSolution = function (customfunction, z) {
+  let result = [];
+  for (let i = 1; i <= z; i++) {
+    for (let k = 1; k <= z; k++) {
+      let temp = customfunction.f(i, k);
+      if (temp > z) {
+        break;
+      };
+      if (temp === z) {
+        result.push([i, k]);
+      };
+    };
+  };
+  return result;
+};
