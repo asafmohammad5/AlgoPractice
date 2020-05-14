@@ -1007,3 +1007,38 @@ var findSolution = function (customfunction, z) {
   };
   return result;
 };
+
+var kWeakestRows = function (mat, k) {
+  const arr = [];
+  const hash = {};
+
+  for (let i = 0; i < mat.length; i++) {
+    hash[i] = helperK(mat[i])
+  }
+  const values = Object.values(hash).sort();
+
+  while (arr.length < k) {
+    let chekr = values.shift();
+    for (let i = 0; i < mat.length; i++) {
+      if (hash[i] === chekr) {
+        arr.push(i);
+        delete hash[i];
+        break
+      }
+    }
+
+  }
+  return arr;
+};
+
+var helperK = function (array) {
+  count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 1) {
+      count++;
+    } else {
+      break;
+    }
+  }
+  return count
+}
