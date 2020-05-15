@@ -1042,3 +1042,18 @@ var helperK = function (array) {
   }
   return count
 }
+
+var middleNode = function (head) {
+  let current = head,
+    middle = head;
+
+  while (current && current.next && current.next.next) {
+    middle = middle.next;
+    current = current.next.next;
+  }
+
+  if (current && current.next && !current.next.next)
+    return middle.next;
+
+  return middle;
+};
