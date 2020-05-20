@@ -1057,3 +1057,12 @@ var middleNode = function (head) {
 
   return middle;
 };
+
+var isUnivalTree = function (root) {
+
+  let bLeftTrue = !root.left || (root.left.val == root.val && isUnivalTree(root.left));
+
+  let bRightTrue = !root.right || (root.right.val == root.val && isUnivalTree(root.right));
+
+  return bLeftTrue && bRightTrue
+};
