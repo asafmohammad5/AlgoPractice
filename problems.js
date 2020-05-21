@@ -1066,3 +1066,33 @@ var isUnivalTree = function (root) {
 
   return bLeftTrue && bRightTrue
 };
+
+var numUniqueEmails = function (emails) {
+  let validEmails = [];
+
+  while (emails.length) {
+    let emailArr = emails.shift().split('@');
+    let email = helper(emailArr[0]) + '@' + emailArr[1];
+
+    if (!validEmails.includes(email)) {
+      validEmails.push(email)
+    }
+
+  }
+
+  return validEmails.length;
+};
+
+
+var helper = function (local) {
+  let validLocal = '';
+  for (let i = 0; i < local.length; i++) {
+    if (local[i] === '+') {
+      break;
+    } else if (local[i] !== ".") {
+      validLocal += local[i];
+    }
+
+  }
+  return validLocal;
+};
