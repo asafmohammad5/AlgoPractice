@@ -1097,11 +1097,13 @@ var helper = function (local) {
   return validLocal;
 };
 
+
 var commonChars = function (A) {
+
   let res = [...A[0]];
 
   for (let i = 1; i < A.length; i++) {
-    console.log(res)
+    
     res = res.filter(c => {
 
       const l = A[i].length;
