@@ -1105,13 +1105,28 @@ var commonChars = function (A) {
   for (let i = 1; i < A.length; i++) {
     
     res = res.filter(c => {
-
       const l = A[i].length;
-      A[i] = A[i].replace(c, "");
+      A[i] = A[i].replace(c, '');
 
       return l > A[i].length;
+      
     });
   }
   return res;
+};
+
+var fib = function (N) {
+  let fibArr = [1, 1];
+  let counter = 3;
+  if (N <= fibArr.length) {
+    if (N === 0) return 0;
+    if (N === 1) return 1;
+    if (N === 2) return 1;
+  }
+  while (fibArr.length < N) {
+    fibArr.push(fibArr[counter - 3] + fibArr[counter - 2]);
+    counter++;
+  }
+  return fibArr[N - 1]
 };
 
