@@ -1130,3 +1130,27 @@ var fib = function (N) {
   return fibArr[N - 1]
 };
 
+var minimumAbsDifference = function (arr) {
+  let minArr = [];
+  arr.sort((a, b) => a - b);
+  let minDistance = helper(arr);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (Math.abs(arr[i] - arr[i + 1]) === minDistance) {
+      minArr.push([arr[i], arr[i + 1]]);
+    }
+  }
+  return minArr;
+};
+
+var helper = function (arr) {
+  let distance = Infinity;
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (distance === 1) break;
+    if (Math.abs(arr[i] - arr[i + 1]) < distance) distance = Math.abs(arr[i] - arr[i + 1])
+  }
+
+  return distance;
+}
+
