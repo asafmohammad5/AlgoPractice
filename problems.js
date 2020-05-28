@@ -1154,3 +1154,47 @@ var helper = function (arr) {
   return distance;
 }
 
+var numRookCaptures = function (board) {
+  let hash = {};
+  let rookPos;
+  let count = 0;
+  for (let i = 0; i < board.length; i++) {
+    if (board[i].includes("R")) {
+      hash["side"] = board[i];
+      hash["up"] = []
+      rookPos = [i, board[i].indexOf("R")];
+      break;
+    }
+  }
+  for (let i = 0; i < board.length; i++) {
+    hash["up"].push(board[i][rookPos[1]])
+  }
+  hash = Object.values(hash);
+  while (hash.length >= 1) {
+    let boardN = hash.shift();
+    let pawn = false;
+    for (let i = 0; i < boardN.length; i++) {
+      if (i === rookPos[1] + 1 && boardN[i] !== "." || "p") {
+        break;
+      }
+      if (boardN[i] === ".") {
+        continue;
+      } else if (pawn === true && boardN[i + 1] === ".") {
+        continue;
+      } else if (boardN[i] === "p" && boardN[i + 1] === ".") {
+        pawn = true;
+      } else if (boardN[i] === "p" && boardN[i + 1] === "R") {
+        count++;
+        i++;
+        pawn = false;
+      } else if (pawn === true && boardN[i + 1] === "R") {
+        count++;
+        i++;
+        pawn = false;
+      } count++;
+      i++;
+      pawn = false;
+    }
+  }
+  return count;
+};
