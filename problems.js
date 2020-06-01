@@ -1170,30 +1170,44 @@ var numRookCaptures = function (board) {
     hash["up"].push(board[i][rookPos[1]])
   }
   hash = Object.values(hash);
-  while (hash.length >= 1) {
-    let boardN = hash.shift();
-    let pawn = false;
-    for (let i = 0; i < boardN.length; i++) {
-      if (i === rookPos[1] + 1 && boardN[i] !== "." || "p") {
-        break;
-      }
-      if (boardN[i] === ".") {
-        continue;
-      } else if (pawn === true && boardN[i + 1] === ".") {
-        continue;
-      } else if (boardN[i] === "p" && boardN[i + 1] === ".") {
-        pawn = true;
-      } else if (boardN[i] === "p" && boardN[i + 1] === "R") {
-        count++;
-        i++;
-        pawn = false;
-      } else if (pawn === true && boardN[i + 1] === "R") {
-        count++;
-        i++;
-        pawn = false;
-      } count++;
-      i++;
-      pawn = false;
+  for (let i = 0; i < hash.length; i++) {
+    count += helperR(hash[i].slice(0, hash[i].indexOf('R') + 1), hash[i].slice(hash[i].indexOf('R')))
+  }
+  return count;
+};
+
+var helperR = function (lArray, rArray) {
+  rArray = rArray.reverse();
+  let count = 0;
+  let pawnL = false;
+  let pawnR = false;
+
+  for (let i = 0; i < lArray.length; i++) {
+    if (lArray[i] === ".") {
+      continue;
+    } else if (lArray[i] === "p") {
+      pawnL = true;
+    } else if (pawnL && lArray[i] === ".") {
+      continue;
+    } else if (pawnL && lArray[i] === "R") {
+      count++;
+      break;
+    } else if (pawnL && lArray[i] === "B") {
+      pawnL = false;
+    }
+  }
+  for (let i = 0; i < rArray.length; i++) {
+    if (rArray[i] === ".") {
+      continue;
+    } else if (rArray[i] === "p") {
+      pawnR = true;
+    } else if (pawnR && rArray[i] === ".") {
+      continue;
+    } else if (pawnR && rArray[i] === "R") {
+      count++;
+      break;
+    } else if (pawnR && rArray[i] === "B") {
+      pawnR = false;
     }
   }
   return count;
