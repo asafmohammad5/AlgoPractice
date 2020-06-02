@@ -1212,3 +1212,26 @@ var helperR = function (lArray, rArray) {
   }
   return count;
 };
+
+var shortestToChar = function (S, C) {
+  let res = []
+  ind = [];
+
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === C)
+      ind.push(i);
+  }
+
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] === C) {
+      res.push(0);
+    } else {
+      let min = S.length;
+      for (let j = 0; j < ind.length; j++) {
+        min = Math.min(min, Math.abs(i - ind[j]));
+      }
+      res.push(min);
+    }
+  }
+  return res;
+};
