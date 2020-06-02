@@ -1214,24 +1214,31 @@ var helperR = function (lArray, rArray) {
 };
 
 var shortestToChar = function (S, C) {
-  let res = []
-  ind = [];
-
-  for (let i = 0; i < S.length; i++) {
-    if (S[i] === C)
-      ind.push(i);
-  }
+  const distArr = new Array(S.length).fill(0);
+  const idxArr = [];
 
   for (let i = 0; i < S.length; i++) {
     if (S[i] === C) {
-      res.push(0);
-    } else {
-      let min = S.length;
-      for (let j = 0; j < ind.length; j++) {
-        min = Math.min(min, Math.abs(i - ind[j]));
-      }
-      res.push(min);
+      idxArr.push(i)
     }
   }
-  return res;
+
+  for (let i = 0; i < S.length; i++) {
+    let distance;
+    if (idxArr.includes(i)) {
+      continue;
+    } else {
+      distance = helperShortest(i, idxArr);
+      distArr[i] = distance;
+    }
+  }
+  return distArr;
+};
+
+var helperShortest = function (i, array) {
+  let smallest = Infinity;
+  for (let j = 0; j < array.length; j++) {
+    smallest = Math.min(smallest, Math.abs(i - array[j]))
+  }
+  return smallest;
 };
