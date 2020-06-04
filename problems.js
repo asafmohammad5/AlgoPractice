@@ -1242,3 +1242,17 @@ var helperShortest = function (i, array) {
   }
   return smallest;
 };
+
+var isPrefixOfWord = function (sentence, searchWord) {
+  sentence = sentence.split(" ");
+  let pos = -1;
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i].includes(searchWord)) {
+      if (sentence[i].slice(0, searchWord.length) === searchWord) {
+        pos = i + 1;
+        break
+      }
+    }
+  }
+  return pos;
+};
