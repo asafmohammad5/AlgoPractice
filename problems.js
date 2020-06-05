@@ -1260,3 +1260,25 @@ var isPrefixOfWord = function (sentence, searchWord) {
 var divisorGame = function (N) {
   return N % 2 === 0;
 }; 
+
+var numSpecialEquivGroups = function (A) {
+  let hash = {};
+
+  for (let i = 0; i < A.length; i++) {
+    helperGroup(A[i], hash)
+  }
+  return Object.keys(hash).length
+};
+
+
+var helperGroup = function (str, hash) {
+  let even = str.split('').filter((_, i) => i % 2 === 0);
+  let odd = str.split('').filter((_, i) => i % 2 !== 0);
+  even = even.sort();
+  odd = odd.sort();
+
+  if (!hash[even.join(' ') + odd.join(' ')]) {
+    hash[even.join(' ') + odd.join(' ')] = true;
+  }
+  return hash;
+};
