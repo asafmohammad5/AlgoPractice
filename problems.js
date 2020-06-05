@@ -1256,3 +1256,7 @@ var isPrefixOfWord = function (sentence, searchWord) {
   }
   return pos;
 };
+
+var divisorGame = function (N) {
+  return N % 2 === 0;
+}; 
