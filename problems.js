@@ -1282,3 +1282,22 @@ var helperGroup = function (str, hash) {
   }
   return hash;
 };
+
+var findLucky = function (arr) {
+  let hash = {}
+  for (let i = 0; i < arr.length; i++) {
+    if (!hash[arr[i]]) {
+      hash[arr[i]] = 1;
+    } else {
+      hash[arr[i]]++
+    }
+  }
+  let current = -1;
+  for (const key in hash) {
+    let value = hash[key]
+    if (value === parseInt(key)) {
+      current = value;
+    }
+  }
+  return current;
+};
