@@ -1301,3 +1301,10 @@ var findLucky = function (arr) {
   }
   return current;
 };
+
+var smallestRangeI = function (A, K) {
+  let max = Math.max(...A);
+  let min = Math.min(...A);
+  let diff = max - min - K - K;
+  return diff < 0 ? 0 : diff;
+};
