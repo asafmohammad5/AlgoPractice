@@ -1313,3 +1313,16 @@ var maxDepth = function (root) {
   if (root === null) return 0
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
 };
+
+var allCellsDistOrder = function (R, C, r0, c0) {
+  let max = R * C;
+  let distances = new Array(max);
+  let i = 0;
+  for (let r = 0; r < R; r++) {
+    for (let c = 0; c < C; c++) {
+      distances[i] = [Math.abs(r - r0), Math.abs(c - c0)];
+      i++;
+    }
+  }
+  return distances;
+};
