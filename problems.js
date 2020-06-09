@@ -1308,3 +1308,8 @@ var smallestRangeI = function (A, K) {
   let diff = max - min - K - K;
   return diff < 0 ? 0 : diff;
 };
+
+var maxDepth = function (root) {
+  if (root === null) return 0
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
+};
