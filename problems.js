@@ -1326,3 +1326,10 @@ var allCellsDistOrder = function (R, C, r0, c0) {
   }
   return distances;
 };
+
+var singleNumber = function (nums) {
+  nums = nums.sort();
+  for (let i = 0; i <= nums.length - 1; i += 2) {
+    if (nums[i] !== nums[i + 1]) return nums[i]
+  }
+};
