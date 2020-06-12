@@ -1333,3 +1333,16 @@ var singleNumber = function (nums) {
     if (nums[i] !== nums[i + 1]) return nums[i]
   }
 };
+
+var minStartValue = function (nums) {
+  let startV = 1
+  let tally = 1;
+  for (x of nums) {
+    tally += x;
+    if (tally < 1) {
+      startV += Math.abs(tally) + 1;
+      tally = 1;
+    }
+  }
+  return startV;
+};
