@@ -1383,4 +1383,26 @@ var helperCount = function (num) {
     counter += parseInt(n);
   })
   return counter;
-}
+};
+
+var leafSimilar = function (root1, root2) {
+  let arr1 = []
+  let arr2 = [];
+  helperLeaf(root1, arr1);
+  helperLeaf(root2, arr2);
+  if (arr1.length !== arr2.length) return false;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
+  }
+  return true;
+};
+
+var helperLeaf = function (root, array) {
+  if (root !== null) {
+    if (root.left === null && root.right === null) {
+      array.push(root.val)
+    }
+    helperLeaf(root.right, array);
+    helperLeaf(root.left, array)
+  }
+};
