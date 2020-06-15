@@ -1346,3 +1346,41 @@ var minStartValue = function (nums) {
   }
   return startV;
 };
+
+var countLargestGroup = function (n) {
+  let i = 1;
+  let hash = {};
+  let count = 0;
+  while (i <= n) {
+    if (Math.floor(i / 10) === 0) {
+      hash[i] = [i];
+      i++;
+    } else {
+      let num = helperCount(i);
+      if (hash[num]) {
+        hash[num].push(i);
+        i++;
+      } else {
+        hash[num] = [i];
+        i++;
+      }
+    }
+  }
+  hash = Object.values(hash);
+  hash.sort((a, b) => a.length - b.length);
+  let largest = hash[hash.length - 1].length
+  hash.forEach(n => {
+    if (n.length === largest) count++;
+  })
+  return count;
+};
+
+var helperCount = function (num) {
+  let counter = 0;
+  let numN = num.toString().split('');
+
+  numN.forEach(n => {
+    counter += parseInt(n);
+  })
+  return counter;
+}
