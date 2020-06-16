@@ -1406,3 +1406,12 @@ var helperLeaf = function (root, array) {
     helperLeaf(root.left, array)
   }
 };
+
+var findComplement = function (num) {
+  let co = 1
+
+  while (co < num)
+    co = (co << 1) | 1
+
+  return num ^ co
+};
