@@ -1428,3 +1428,24 @@ var isToeplitzMatrix = function (matrix) {
   }
   return true;
 };
+
+var numberOfLines = function (widths, S) {
+  let arr = [1, 0];
+  let count = 0;
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for (let i = 0; i < S.length; i++) {
+    let width = widths[alphabet.indexOf(S[i])]
+    if (count + width < 100) {
+      count += width;
+    } else if (count + width >= 100) {
+      arr[0]++;
+      if (count + width > 100) {
+        count = width;
+      } else {
+        count = 0;
+      }
+    }
+  }
+  arr[1] = count
+  return arr;
+};
