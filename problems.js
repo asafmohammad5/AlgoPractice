@@ -1449,3 +1449,14 @@ var numberOfLines = function (widths, S) {
   arr[1] = count
   return arr;
 };
+
+var findOcurrences = function (text, first, second) {
+  let arr = [];
+  text = text.split(" ");
+  for (let i = 0; i < text.length - 2; i++) {
+    if (text[i] === first && text[i + 1] === second) {
+      arr.push(text[i + 2]);
+    }
+  }
+  return arr;
+};
