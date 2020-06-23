@@ -1460,3 +1460,30 @@ var findOcurrences = function (text, first, second) {
   }
   return arr;
 };
+
+var findWords = function (words) {
+  let keyboard = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+  ['z', 'x', 'c', 'v', 'b', 'n', 'm']];
+  let i = 0;
+  let arr = [];
+  while (i < words.length) {
+    let rowCheck;
+    let word = words.shift();
+    for (let j = 0; j < keyboard.length; j++) {
+      if (keyboard[j].includes(word[0].toLowerCase())) {
+        rowCheck = keyboard[j];
+        break;
+      }
+    }
+    for (let k = 0; k < word.length; k++) {
+      if (rowCheck.includes(word[k].toLowerCase()) && k === word.length - 1) {
+        arr.push(word);
+      } else if (rowCheck.includes(word[k].toLowerCase())) {
+        continue;
+      } else {
+        break;
+      }
+    }
+  }
+  return arr;
+};
