@@ -1487,3 +1487,22 @@ var findWords = function (words) {
   }
   return arr;
 };
+
+var invertTree = function (root) {
+  depth(root);
+  return root;
+}
+
+function depth(node) {
+  if (node === null) return null;
+
+  depth(node.left);
+  depth(node.right);
+
+  console.log(node)
+  const temp = node.left;
+  console.log(node.left)
+  node.left = node.right;
+  console.log(node.right)
+  node.right = temp;
+};
