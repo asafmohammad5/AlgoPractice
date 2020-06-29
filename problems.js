@@ -1541,3 +1541,22 @@ var islandPerimeter = function (grid) {
   }
   return perimeter;
 };
+
+var letterCasePermutation = function (S) {
+  let arr = [];
+  results("", 0);
+  function results(current, i) {
+    if (current.length == S.length) {
+      arr.push(current);
+      return;
+    }
+    if (S.charAt(i) >= '0' && S.charAt(i) <= '9') {
+      current += S.charAt(i);
+      results(current, i + 1);
+    } else {
+      results(current + S.charAt(i).toLowerCase(), i + 1);
+      results(current + S.charAt(i).toUpperCase(), i + 1);
+    }
+  }
+  return arr;
+};
