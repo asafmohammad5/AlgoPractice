@@ -1545,17 +1545,36 @@ var islandPerimeter = function (grid) {
 var letterCasePermutation = function (S) {
   let arr = [];
   results("", 0);
-  function results(current, i) {
-    if (current.length == S.length) {
-      arr.push(current);
+  function results(string, i) {
+    if (string.length == S.length) {
+      arr.push(string);
       return;
     }
     if (S.charAt(i) >= '0' && S.charAt(i) <= '9') {
-      current += S.charAt(i);
-      results(current, i + 1);
+      string += S.charAt(i);
+      results(string, i + 1);
     } else {
-      results(current + S.charAt(i).toLowerCase(), i + 1);
-      results(current + S.charAt(i).toUpperCase(), i + 1);
+      results(string + S.charAt(i).toLowerCase(), i + 1);
+      results(string + S.charAt(i).toUpperCase(), i + 1);
+    }
+  }
+  return arr;
+};
+
+var nextGreaterElement = function (nums1, nums2) {
+  let arr = [];
+  for (let i = 0; i < nums1.length; i++) {
+    let idxCheck = nums2.indexOf(nums1[i]);
+    while (idxCheck < nums2.length) {
+      if (idxCheck >= nums2.length - 1) {
+        arr.push(-1);
+        break;
+      } else if (nums2[idxCheck + 1] > nums1[i]) {
+        arr.push(nums2[idxCheck + 1]);
+        break;
+      } else {
+        idxCheck++;
+      }
     }
   }
   return arr;
