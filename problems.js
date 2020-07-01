@@ -1579,3 +1579,28 @@ var nextGreaterElement = function (nums1, nums2) {
   }
   return arr;
 };
+
+var toGoatLatin = function (S) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let newStr = [];
+  S = S.split(' ');
+  for (let i = 0; i < S.length; i++) {
+    let aAdd = helperGoat(i + 1);
+    if (vowels.includes(S[i][0].toLowerCase())) {
+      newStr.push(S[i] + "ma" + aAdd)
+    } else {
+      newStr.push(S[i].slice(1) + S[i].slice(0, 1) + "ma" + aAdd);
+    }
+  }
+  return newStr.join(' ');
+};
+
+var helperGoat = function (i) {
+  let j = 0;
+  let str = '';
+  while (j < i) {
+    str += 'a';
+    j++;
+  }
+  return str;
+}
