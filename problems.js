@@ -1609,3 +1609,20 @@ var deleteNode = function (node) {
   node.val = node.next.val;
   node.next = node.next.next;
 };
+
+var uncommonFromSentences = function (A, B) {
+  let results = [];
+  A = A.split(' ');
+  B = B.split(' ');
+  for (let i = 0; i < A.length; i++) {
+    if (!B.includes(A[i]) && !A.slice(0, i).concat(A.slice(i + 1)).includes(A[i])) {
+      results.push(A[i])
+    }
+  }
+  for (let j = 0; j < B.length; j++) {
+    if (!A.includes(B[j]) && !B.slice(0, j).concat(B.slice(j + 1)).includes(B[j])) {
+      results.push(B[j])
+    }
+  }
+  return results;
+};
