@@ -1626,3 +1626,15 @@ var uncommonFromSentences = function (A, B) {
   }
   return results;
 };
+
+var transpose = function (A) {
+  let results = [];
+  for (let i = 0; i < A[0].length; i++) {
+    let row = [];
+    for (let j = 0; j < A.length; j++) {
+      row.push(A[j][i]);
+    }
+    results.push(row);
+  }
+  return results;
+};
