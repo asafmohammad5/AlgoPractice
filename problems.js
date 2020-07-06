@@ -1647,7 +1647,24 @@ var trimBST = function (root, L, R) {
     return trimBST(root.left, L, R)
   } else {
     root.left = trimBST(root.left, L, R);
-    root.right = trimBST(root.right, L, R);
+    root.right = trimBST(root.right, L, R); 
   }
   return root;
+};
+
+var averageOfLevels = function (root) {
+  let avg = [];
+  let queue = [root];
+  while (queue.length) {
+    const length = queue.length;
+    let sum = 0;
+    for (let i = 0; i < length; i++) {
+      const node = queue.shift();
+      sum += node.val
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    avg.push(sum / length);
+  }
+  return avg;
 };
