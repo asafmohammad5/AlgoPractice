@@ -1668,3 +1668,18 @@ var averageOfLevels = function (root) {
   }
   return avg;
 };
+
+var lastStoneWeight = function (stones) {
+  let count;
+  while (stones.length) {
+    stones = stones.sort((a, b) => a - b);
+    let last = stones.pop();
+    let secondLast = stones.pop();
+    if (secondLast === undefined) {
+      return last;
+    }
+    count = last - secondLast;
+    stones.push(count);
+  }
+  return count;
+};
