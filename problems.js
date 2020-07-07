@@ -1700,3 +1700,15 @@ var fizzBuzz = function (n) {
   }
   return results
 };
+
+var intersection = function (nums1, nums2) {
+  const hash = {}
+  let small = nums1.length < nums2.length ? nums1 : nums2;
+  let great = nums1.length < nums2.length ? nums2 : nums1;
+  for (let i = 0; i < small.length; i++) {
+    if (great.includes(small[i])) {
+      hash[small[i]] = true;
+    }
+  }
+  return Object.keys(hash)
+};
