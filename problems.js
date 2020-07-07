@@ -1683,3 +1683,20 @@ var lastStoneWeight = function (stones) {
   }
   return count;
 };
+
+var fizzBuzz = function (n) {
+  let results = [];
+  while (n) {
+    if (n % 5 === 0 && n % 3 === 0) {
+      results.unshift("FizzBuzz");
+    } else if (n % 5 === 0) {
+      results.unshift("Buzz")
+    } else if (n % 3 === 0) {
+      results.unshift("Fizz")
+    } else {
+      results.unshift(n.toString())
+    }
+    n--;
+  }
+  return results
+};
