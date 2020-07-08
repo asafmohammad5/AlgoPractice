@@ -1712,3 +1712,14 @@ var intersection = function (nums1, nums2) {
   }
   return Object.keys(hash)
 };
+
+var reverseList = function (head) {
+  let previous = null
+  while (head) {
+    const next = head.next
+    head.next = previous
+    previous = head
+    head = next
+  }
+  return previous
+}
