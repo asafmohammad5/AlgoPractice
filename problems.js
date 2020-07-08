@@ -1723,3 +1723,9 @@ var reverseList = function (head) {
   }
   return previous
 }
+
+
+// SQL Leetcode problem #182
+// SELECT DISTINCT Email
+// FROM Person AS email1
+// WHERE Email IN(SELECT Email FROM Person AS email2 WHERE email1.Email = email2.Email AND email1.Id != email2.Id)
