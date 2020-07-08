@@ -1729,3 +1729,17 @@ var reverseList = function (head) {
 // SELECT DISTINCT Email
 // FROM Person AS email1
 // WHERE Email IN(SELECT Email FROM Person AS email2 WHERE email1.Email = email2.Email AND email1.Id != email2.Id)
+
+var sumEvenAfterQueries = function (A, queries) {
+  let res = [];
+  let count;
+  for (let i = 0; i < queries.length; i++) {
+    let val = queries[i][0];
+    let idx = queries[i][1];
+    A[idx] += val;
+    count = A.filter(a => a % 2 === 0);
+    count = count.reduce(function (a, b) { return a + b }, 0);
+    res.push(count);
+  }
+  return res;
+};
