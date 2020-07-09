@@ -1753,3 +1753,19 @@ var distributeCandies = function (candies) {
   return Object.keys(cand).length < max ? Object.keys(cand).length : max;
 };
 
+var shiftGrid = function (grid, k) {
+  if (grid.length * grid[0].length === k) return grid;
+  let i = 0;
+  while (i < k) {
+    for (let i = 0; i < grid.length; i++) {
+      if (i === grid.length - 1) {
+        grid[0].unshift(grid[i].pop())
+        break;
+      }
+      grid[i + 1].unshift(grid[i].pop())
+    }
+    i++;
+  }
+  return grid;
+};
+
