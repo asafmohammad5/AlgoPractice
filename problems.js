@@ -1743,3 +1743,13 @@ var sumEvenAfterQueries = function (A, queries) {
   }
   return res;
 };
+
+var distributeCandies = function (candies) {
+  let cand = {};
+  let max = candies.length / 2;
+  for (let i = 0; i < candies.length; i++) {
+    cand[candies[i]] = true;
+  }
+  return Object.keys(cand).length < max ? Object.keys(cand).length : max;
+};
+
