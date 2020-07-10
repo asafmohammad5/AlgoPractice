@@ -1769,3 +1769,18 @@ var shiftGrid = function (grid, k) {
   return grid;
 };
 
+var maxNumberOfBalloons = function (text) {
+  const hash = { b: 0, a: 0, l: 0, o: 0, n: 0 };
+  for (let char of text) {
+    if (hash[char] !== undefined) hash[char]++;
+  }
+  let words = 0;
+  while (true) {
+    for (const char of 'balloon') {
+      if (hash[char] === 0) return words;
+      hash[char]--;
+    }
+    words++;
+  }
+};
+
