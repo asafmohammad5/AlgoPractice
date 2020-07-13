@@ -1784,3 +1784,23 @@ var maxNumberOfBalloons = function (text) {
   }
 };
 
+var stringMatching = function (words) {
+  let substrings = {}
+  let newWords = words.slice(0, words.length);
+  while (newWords.length) {
+    let word = newWords.shift();
+    for (let i = 0; i < word.length; i++) {
+      for (let j = i + 1; j <= word.length; j++) {
+        let subword = word.slice(i, j);
+        if (!substrings[subword] && word !== subword) substrings[subword] = true;
+      }
+    }
+  }
+  substrings = Object.keys(substrings);
+  let results = []
+  for (let i = 0; i < substrings.length; i++) {
+    if (words.includes(substrings[i])) results.push(substrings[i])
+  }
+  return results;
+};
+
