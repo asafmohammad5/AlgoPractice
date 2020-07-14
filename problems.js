@@ -1804,3 +1804,21 @@ var stringMatching = function (words) {
   return results;
 };
 
+class MyHashMap {
+  constructor() {
+    this.arr = new Array(1000000);
+  }
+
+  put(key, value) {
+    this.arr[key] = value;
+  }
+
+  get(key, value) {
+    return this.arr[key] === undefined ? -1 : this.arr[key];
+  }
+
+  remove(key, value) {
+    this.arr[key] = undefined;
+  }
+}
+
