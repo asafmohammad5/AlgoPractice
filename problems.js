@@ -1822,3 +1822,59 @@ class MyHashMap {
   }
 }
 
+var reformatDate = function (date) {
+  let newDate = '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let dateArr = date.split(' ').reverse();
+  for (let i = 0; i < dateArr.length; i++) {
+    if (i === dateArr.length - 1) {
+      let day;
+      if (dateArr[i].includes("st")) {
+        day = dateArr[i].split("st");
+        if (day[0] < 10) {
+          day[0] = "0" + day[0]
+        }
+        newDate += day[0];
+        break;
+      }
+      if (dateArr[i].includes("nd")) {
+        day = dateArr[i].split("nd");
+        if (day[0] < 10) {
+          day[0] = "0" + day[0]
+        }
+        newDate += day[0];
+        break;
+      }
+      if (dateArr[i].includes("th")) {
+        day = dateArr[i].split("th");
+        if (day[0] < 10) {
+          day[0] = "0" + day[0]
+        }
+        newDate += day[0];
+        break;
+      }
+      if (dateArr[i].includes("rd")) {
+        day = dateArr[i].split("rd");
+        if (day[0] < 10) {
+          day[0] = "0" + day[0]
+        }
+        newDate += day[0];
+        break;
+      }
+    }
+    if (months.includes(dateArr[i])) {
+      let month = months.indexOf(dateArr[i]) + 1;
+      if (month < 10) {
+        month = "0" + month
+      }
+      newDate += month + '-'
+    }
+    if (i === 0) {
+      newDate += dateArr[i] + '-'
+    }
+  }
+  return newDate;
+};
+
+
+
