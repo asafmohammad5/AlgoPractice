@@ -1876,5 +1876,23 @@ var reformatDate = function (date) {
   return newDate;
 };
 
+var maxPower = function (s) {
+  let count = 1;
+  let temp = 0;
+  let current;
+  for (const letter of s) {
+    if (current === letter) {
+      temp++;
+    } else {
+      current = letter;
+      temp = 1;
+    }
+    if (count < temp) {
+      count = temp;
+    }
+  }
+  return count;
+};
+
 
 
