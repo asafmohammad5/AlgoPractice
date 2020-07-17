@@ -1894,5 +1894,29 @@ var maxPower = function (s) {
   return count;
 };
 
+var MyHashSet = function () {
+  this.hashset = [];
+};
+
+
+MyHashSet.prototype.add = function (key) {
+  if (this.hashset.indexOf(key) < 0) {
+    this.hashset.push(key)
+  }
+};
+
+
+MyHashSet.prototype.remove = function (key) {
+  const index = this.hashset.indexOf(key)
+  if (index >= 0) {
+    delete this.hashset[index]
+  }
+};
+
+
+MyHashSet.prototype.contains = function (key) {
+  return this.hashset.indexOf(key) >= 0
+};
+
 
 
