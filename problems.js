@@ -1918,5 +1918,17 @@ MyHashSet.prototype.contains = function (key) {
   return this.hashset.indexOf(key) >= 0
 };
 
+var distributeCandies = function (candies, num_people) {
+  let i = 0;
+  let results = new Array(num_people).fill(0);
+  while (candies - i > 0) {
+    results[i % num_people] += i + 1;
+    i++;
+    candies -= i;
+  }
+  results[i % num_people] += candies;
+  return results;
+};
+
 
 
