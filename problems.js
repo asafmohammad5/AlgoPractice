@@ -1930,5 +1930,21 @@ var distributeCandies = function (candies, num_people) {
   return results;
 };
 
+var matrixReshape = function (nums, r, c) {
+  if (nums[0].length * nums.length < r * c) return nums;
+  let numsArr = []
+  let resultArr = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    numsArr.push(...nums[i])
+  }
+  let j = 0;
+  for (let i = 0; i < r; i++) {
+    resultArr.push(numsArr.slice(j, j + c));
+    j += c
+  }
+  return resultArr;
+};
+
 
 
