@@ -1946,5 +1946,10 @@ var matrixReshape = function (nums, r, c) {
   return resultArr;
 };
 
+// SQL QUERY Leet Code problem 175
+// select FirstName, LastName, City, State
+// from Person per
+// left join Address addr on per.personId = addr.personId;
+
 
 
