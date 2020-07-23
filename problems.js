@@ -1951,5 +1951,16 @@ var matrixReshape = function (nums, r, c) {
 // from Person per
 // left join Address addr on per.personId = addr.personId;
 
-
+var findSpecialInteger = function (arr) {
+  let appear = {};
+  for (let num of arr) {
+    if (!appear[num]) {
+      appear[num] = 1;
+    } else {
+      appear[num]++;
+    }
+  }
+  let num = Math.max(...Object.values(appear));
+  return Object.keys(appear).find(key => appear[key] === num)
+};
 
