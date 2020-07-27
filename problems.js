@@ -1982,3 +1982,20 @@ var removePalindromeSub = function (s) {
   return 1;
 };
 
+var groupThePeople = function (groupSizes) {
+  const array = groupSizes.slice(0, groupSizes.length).sort((a, b) => a - b);
+  let results = [];
+  while (array.length) {
+    let res = [];
+    let counter = array[0];
+    while (res.length < counter) {
+      let num = array.shift();
+      let idx = groupSizes.indexOf(num);
+      res.push(idx);
+      groupSizes[idx] = -1
+    }
+    results.push(res)
+  }
+  return results;
+};
+
