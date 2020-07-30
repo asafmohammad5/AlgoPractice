@@ -2024,3 +2024,22 @@ var getTargetCopy = function (original, cloned, target) {
   }
 };
 
+let maxIncreaseKeepingSkyline = function (grid) {
+  let sum = 0;
+  let rows = [];
+  let columns = [];
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      if (!rows[i] || rows[i] < grid[i][j]) rows[i] = grid[i][j];
+      if (!columns[j] || columns[j] < grid[i][j]) columns[j] = grid[i][j];
+    }
+  }
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      let maxHeight = Math.min(rows[i], columns[j]);
+      sum += (maxHeight - grid[i][j])
+    }
+  }
+  return sum;
+};
+
