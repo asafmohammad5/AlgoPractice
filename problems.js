@@ -2043,3 +2043,25 @@ let maxIncreaseKeepingSkyline = function (grid) {
   return sum;
 };
 
+var deepestLeavesSum = function (root) {
+  const stack = [];
+  const values = {};
+  let maxD = 1;
+  let sum = 0;
+  stack.push({ node: root, depth: 1 });
+  while (stack.length) {
+    const node = stack.pop();
+    if (!values[node.depth]) {
+      values[node.depth] = [];
+    }
+    values[node.depth].push(node.node.val)
+    if (node.node.left) stack.push({ node: node.node.left, depth: node.depth + 1 });
+    if (node.node.right) stack.push({ node: node.node.right, depth: node.depth + 1 });
+    maxD = Math.max(maxD, node.depth);
+  }
+  for (ele of values[maxD]) {
+    sum += ele;
+  }
+  return sum;
+};
+
