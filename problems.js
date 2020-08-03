@@ -2065,3 +2065,16 @@ var deepestLeavesSum = function (root) {
   return sum;
 };
 
+var processQueries = function (queries, m) {
+  let first = []
+  let results = []
+  for (let i = 1; i <= m; i++)first.push(i)
+  for (let i = 0; i < queries.length; i++) {
+    let index = first.indexOf(queries[i])
+    first.unshift(first[index])
+    first.splice(index + 1, 1)
+    results.push(index)
+  }
+  return results
+};
+
