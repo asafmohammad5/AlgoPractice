@@ -2078,3 +2078,13 @@ var processQueries = function (queries, m) {
   return results
 };
 
+let numTeams = (A, result = 0) => {
+  let leng = A.length;
+  for (let i = 0; i < leng; ++i)
+    for (let j = i + 1; j < leng; ++j)
+      for (let k = j + 1; k < leng; ++k)
+        if ((A[i] < A[j] && A[j] < A[k]) || (A[i] > A[j] && A[j] > A[k]))
+          result++;
+  return result;
+};
+
