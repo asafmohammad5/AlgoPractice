@@ -2114,3 +2114,21 @@ var bstToGst = function (root) {
   return root;
 };
 
+var constructMaximumBinaryTree = function (nums) {
+  if (nums.length === 0) {
+    return null;
+  }
+  let max = [-1, -Infinity];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > max[1]) {
+      max = [i, nums[i]];
+    }
+  }
+  console.log(max)
+  console.log("-----")
+  let node = new TreeNode(max[1]);
+  node.left = constructMaximumBinaryTree(nums.slice(0, max[0]));
+  node.right = constructMaximumBinaryTree(nums.slice(max[0] + 1));
+  return node;
+};
+
