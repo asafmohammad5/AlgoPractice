@@ -2098,21 +2098,18 @@ var bstToGst = function (root) {
     traverse(root.right);
   }
   traverse(root);
-  console.log(arr)
-  let sum = new Array(arr.length);
-  for (let i = 0; i < arr.length; i++) {
-    sum[i] = arr[i] + sum[i - 1] || 0;
+  let sum = arr.slice();
+  for (let i = arr.length - 2; i >= 0; i--) {
+    arr[i] = arr[i] + arr[i + 1]
   }
-  console.log(sum)
   let changeSum = function (root) {
     if (root == null)
       return;
     changeSum(root.left);
-    let ind = arr.indexOf(root.val);
-    root.val = sum[sum.length - 1] - (sum[ind - 1] || 0);
+    let ind = sum.indexOf(root.val);
+    root.val = arr[ind]
     changeSum(root.right);
   }
-  console.log("------")
   changeSum(root);
   return root;
 };
