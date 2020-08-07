@@ -2132,3 +2132,23 @@ var constructMaximumBinaryTree = function (nums) {
   return node;
 };
 
+var bstFromPreorder = function (preorder) {
+  let construct = (root, child) => {
+    if (root.val > child) {
+      if (!root.left)
+        root.left = new TreeNode(child);
+      else
+        construct(root.left, child);
+    } else {
+      if (!root.right)
+        root.right = new TreeNode(child);
+      else
+        construct(root.right, child);
+    }
+  };
+  let root = new TreeNode(preorder[0]);
+  for (let i = 1; i < preorder.length; ++i)
+    construct(root, preorder[i]);
+  return root;
+};
+
