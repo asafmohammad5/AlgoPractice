@@ -2152,3 +2152,29 @@ var bstFromPreorder = function (preorder) {
   return root;
 };
 
+let diagonalSort = (A) => {
+  let hash = {};
+  for (let r = 0; r < A.length; r++) {
+    for (let c = 0; c < A[r].length; c++) {
+      const ele = A[r][c]
+      const diag = r - c
+      if (!hash[diag])
+        hash[diag] = [];
+      hash[diag].push(ele)
+    }
+  }
+
+  for (let k in hash) {
+    hash[k].sort((a, b) => a - b)
+  }
+
+  for (let r = 0; r < A.length; r++) {
+    for (let c = 0; c < A[r].length; c++) {
+      const diag = r - c
+      const ele = hash[diag].shift()
+      A[r][c] = ele
+    }
+  }
+  return A
+};
+
