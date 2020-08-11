@@ -2178,3 +2178,20 @@ let diagonalSort = (A) => {
   return A
 };
 
+var allPathsSourceTarget = function (graph) {
+  const N = graph.length, result = [];
+  function callDFS(node, arr) {
+    if (node === N - 1) {
+      result.push([...arr, node])
+      return;
+    }
+
+    for (let next of graph[node]) {
+
+      callDFS(next, [...arr, node]);
+    }
+  }
+  callDFS(0, []);
+  return result;
+};
+
