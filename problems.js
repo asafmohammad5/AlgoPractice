@@ -2210,3 +2210,20 @@ var insertIntoBST = function (root, val) {
   return root;
 };
 
+var getAllElements = function (root1, root2,) {
+  const results = [];
+  function getInt(node) {
+    if (!node) return;
+    results.push(node.val);
+    if (node.left) {
+      getInt(node.left);
+    }
+    if (node.right) {
+      getInt(node.right);
+    }
+  }
+  getInt(root1);
+  getInt(root2);
+  return results.sort((a, b) => a - b);
+};
+
