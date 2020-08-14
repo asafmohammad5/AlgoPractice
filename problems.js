@@ -2227,3 +2227,16 @@ var getAllElements = function (root1, root2,) {
   return results.sort((a, b) => a - b);
 };
 
+var numTilePossibilities = function (tiles) {
+  let res = 0;
+  const set = new Set();
+  for (let i = 0; i < tiles.length; i++) {
+    if (set.has(tiles[i])) continue;
+   
+    res += numTilePossibilities(tiles.slice(0, i) + tiles.slice(i + 1)) + 1;
+
+    set.add(tiles[i]);
+  }
+  return res;
+};
+
