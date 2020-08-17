@@ -2240,3 +2240,26 @@ var numTilePossibilities = function (tiles) {
   return res;
 };
 
+var balanceBST = function (root) {
+  const arr = [];
+  const dfs = n => {
+    if (!n) return;
+    dfs(n.left);
+    arr.push(n.val);
+    dfs(n.right);
+    console.log(arr)
+  };
+
+  const construct = (left, right) => {
+    if (left > right) return null;
+    const mid = left + Math.floor((right - left) / 2);
+    const node = new TreeNode(arr[mid]);
+    node.left = construct(left, mid - 1);
+    node.right = construct(mid + 1, right);
+    return node;
+  };
+  console.log(arr)
+  dfs(root);
+  return construct(0, arr.length - 1);
+};
+
