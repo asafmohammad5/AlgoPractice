@@ -2258,8 +2258,23 @@ var balanceBST = function (root) {
     node.right = construct(mid + 1, right);
     return node;
   };
-  console.log(arr)
   dfs(root);
   return construct(0, arr.length - 1);
 };
 
+let minSteps = (s, t, map = {}) => {
+  let result = 0;
+  for (let char of s) {
+    if (!map[char])
+      map[char] = 0;
+    ++map[char];
+  }
+  for (let char of t) {
+    if (!map[char]) result++;
+    if (map[char]) {
+      if (map[char] <= 0) result++;
+      else map[char]--;
+    }
+  }
+  return result;
+};
