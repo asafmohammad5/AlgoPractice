@@ -2278,3 +2278,17 @@ let minSteps = (s, t, map = {}) => {
   }
   return result;
 };
+
+const minOperations = n => {
+  let total = 0;
+  let begin;
+  n % 2 == 0 ? begin = 1 : begin = 0;
+  let i = 0;
+  while (i < Math.ceil(n / 2)) {
+
+    total += begin;
+    begin += 2;
+    i++;
+  }
+  return total;
+}
