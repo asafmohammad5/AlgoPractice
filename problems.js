@@ -2292,3 +2292,26 @@ const minOperations = n => {
   }
   return total;
 }
+
+function partitionLabels(S) {
+  const N = S.length;
+  const idxs = [];
+  const results = [];
+
+  for (let i = 0; i < N; i++) {
+    idxs[S[i]] = i;
+  }
+
+  let max = 0;
+  let left = 0;
+
+  for (let right = 0; right < N; right++) {
+    max = Math.max(max, idxs[S[right]]);
+    if (max === right) {
+      results.push(right - left + 1);
+      left = right + 1;
+    }
+  }
+
+  return results;
+}
