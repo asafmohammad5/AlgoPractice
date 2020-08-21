@@ -2315,3 +2315,41 @@ function partitionLabels(S) {
 
   return results;
 }
+
+
+var CustomStack = function (maxSize) {
+  this.stack = [];
+  this.max = maxSize;
+};
+
+CustomStack.prototype.push = function (x) {
+  if (this.max > this.stack.length) {
+    this.stack = this.stack.concat([x])
+  } else {
+    return this.stack;
+  }
+  return this.stack;
+};
+
+
+CustomStack.prototype.pop = function () {
+  let len = this.stack.length
+  if (len === 0) return -1;
+  const popped = this.stack[len - 1];
+  this.stack.splice(len - 1, len);
+  return popped;
+};
+
+CustomStack.prototype.increment = function (k, val) {
+  if (k > this.stack.length) {
+    for (let i = 0; i < this.stack.length; i++) {
+      this.stack[i] = this.stack[i] += val
+    }
+  } else {
+    for (let i = 0; i < k; i++) {
+      this.stack[i] = this.stack[i] += val
+    }
+  }
+  return this.stack;
+};
+
