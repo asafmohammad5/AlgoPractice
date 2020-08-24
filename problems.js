@@ -2353,3 +2353,14 @@ CustomStack.prototype.increment = function (k, val) {
   return this.stack;
 };
 
+const deckRevealedIncreasing = deck => {
+  deck.sort((a, b) => a - b);
+  const ans = [];
+  while (deck.length) {
+    ans.unshift(deck.pop());
+    ans.unshift(ans.pop());
+  }
+  ans.push(ans.shift());
+  return ans;
+};
+
