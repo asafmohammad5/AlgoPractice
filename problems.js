@@ -2364,3 +2364,26 @@ const deckRevealedIncreasing = deck => {
   return ans;
 };
 
+var FindElements = function (root) {
+  const recover = (node, val) => {
+    node.val = val;
+    if (node.left) {
+      recover(node.left, 2 * val + 1);
+    }
+    if (node.right) {
+      recover(node.right, 2 * val + 2);
+    }
+  };
+  recover(root, 0);
+  this.root = root;
+};
+
+FindElements.prototype.find = function (target) {
+  const find = (node) => {
+    if (!node) return false;
+    if (node.val === target) return true;
+    return find(node.left) || find(node.right);
+  };
+  return find(this.root);
+};
+
