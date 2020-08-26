@@ -2387,3 +2387,11 @@ FindElements.prototype.find = function (target) {
   return find(this.root);
 };
 
+var pruneTree = function (root) {
+  if (!root) return null;
+  root.left = pruneTree(root.left);
+  root.right = pruneTree(root.right);
+  if ((!root.left) && (!root.right) && (!root.val)) return null;
+  return root;
+}
+
