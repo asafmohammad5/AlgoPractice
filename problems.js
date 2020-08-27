@@ -2395,3 +2395,15 @@ var pruneTree = function (root) {
   return root;
 }
 
+var minAddToMakeValid = function (S) {
+  let open = 0
+  let close = 0;
+
+  for (let par of S) {
+    if (par === '(') open++;
+    else if (!open) close++;
+    else open--;
+  }
+  return open + close;
+};
+
