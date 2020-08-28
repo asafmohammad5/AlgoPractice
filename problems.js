@@ -2407,3 +2407,24 @@ var minAddToMakeValid = function (S) {
   return open + close;
 };
 
+var findAndReplacePattern = function (words, pattern) {
+  return words.filter(word => isMatch(word, pattern));
+};
+
+var isMatch = (word, pattern) => {
+  const map = {};
+  for (let i = 0; i < pattern.length; i++) {
+    let pL = pattern[i];
+    let wL = word[i];
+    if (map[pL] === undefined && Object.values(map).indexOf(wL) == -1) {
+
+      map[pL] = wL;
+    } else {
+      if (map[pL] !== wL) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
