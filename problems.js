@@ -2448,3 +2448,18 @@ var countSquares = function (matrix) {
   return count;
 };
 
+var removeLeafNodes = function (root, target) {
+  if (root == null) {
+    return null;
+  }
+  if (root.left != null) {
+    root.left = removeLeafNodes(root.left, target);
+  }
+  if (root.right != null) {
+    root.right = removeLeafNodes(root.right, target);
+  }
+  if (root.right == null && root.left == null && root.val == target) {
+    return null;
+  }
+  return root;
+};
