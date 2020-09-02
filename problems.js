@@ -2463,3 +2463,22 @@ var removeLeafNodes = function (root, target) {
   }
   return root;
 };
+
+var maxLevelSum = function (root, sum = 0) {
+  let levels = {};
+
+  function getSums(node, level) {
+    if (node === null) {
+      return;
+    }
+    levels[level] = levels[level] || 0;
+    levels[level] += node.val;
+
+    getSums(node.left, level + 1);
+    getSums(node.right, level + 1);
+  }
+  getSums(root, 1);
+  let arr = Object.values(levels);
+  let maxSum = Math.max(...arr);
+  return Object.keys(levels).find(key => levels[key] === maxSum)
+};
