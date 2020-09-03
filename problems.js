@@ -2482,3 +2482,32 @@ var maxLevelSum = function (root, sum = 0) {
   let maxSum = Math.max(...arr);
   return Object.keys(levels).find(key => levels[key] === maxSum)
 };
+
+class CombinationIterator {
+  constructor(chars, combinationLength) {
+    this.arr = build(combinationLength, chars);
+    this.pos = 0;
+  }
+
+
+  next() {
+    return this.arr[this.pos++];
+
+  }
+
+  hasNext() {
+    return this.pos < this.arr.length;
+
+
+  }
+}
+
+function build(max, str, arr = [], curr = "") {
+  if (curr.length === max) return arr.push(curr);
+
+  for (let i = 0; i < str.length; i++) {
+    build(max, str.slice(i + 1), arr, curr + str[i]);
+  }
+
+  return arr;
+}
