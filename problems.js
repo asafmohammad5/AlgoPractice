@@ -2511,3 +2511,18 @@ function build(max, str, arr = [], curr = "") {
 
   return arr;
 }
+
+var pathInZigZagTree = function (label) {
+  let level = 0;
+  let res = [label];
+  while (label = parseInt(label / 2)) {
+    level++;
+  }
+  console.log(level)
+  for (let i = level - 1; i >= 0; i--) {
+    let sum = (2 ** i) + (2 ** (i + 1)) - 1;
+    let val = parseInt(res[0] / 2);
+    res.unshift(sum - val);
+  }
+  return res;
+};
