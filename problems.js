@@ -2526,3 +2526,15 @@ var pathInZigZagTree = function (label) {
   }
   return res;
 };
+
+var maxCoins = function (piles) {
+  let count = 0;
+  piles.sort((a, b) => a - b);
+  let length = piles.length / 3;
+  let i = piles.length
+  while (length) {
+    count += piles[i -= 2]
+    length--;
+  }
+  return count
+}; 
