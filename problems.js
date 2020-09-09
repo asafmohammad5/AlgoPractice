@@ -2538,3 +2538,18 @@ var maxCoins = function (piles) {
   }
   return count
 }; 
+
+var findSmallestSetOfVertices = function (n, edges) {
+  const hash = {}
+
+  for (let i = 0; i < n; i++) {
+    hash[i] = true;
+  }
+  console.log(hash);
+  for (let i = 0; i < edges.length; i++) {
+    delete hash[edges[i][1]]
+  }
+
+
+  return Object.keys(hash);
+};
