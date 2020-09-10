@@ -2541,7 +2541,6 @@ var maxCoins = function (piles) {
 
 var findSmallestSetOfVertices = function (n, edges) {
   const hash = {}
-
   for (let i = 0; i < n; i++) {
     hash[i] = true;
   }
@@ -2549,7 +2548,20 @@ var findSmallestSetOfVertices = function (n, edges) {
   for (let i = 0; i < edges.length; i++) {
     delete hash[edges[i][1]]
   }
-
-
   return Object.keys(hash);
+};
+
+let routeMap = {};
+
+var encode = function (longUrl) {
+  let route = parseInt(Math.random() * 10000).toString(36);
+
+  while (routeMap[route]) route = parseInt(Math.random() * 10000).toString(36)
+
+  routeMap[route] = longUrl;
+  return ('http://tinyurl.com/' + route);
+};
+
+var decode = function (shortUrl) {
+  return routeMap[shortUrl.substr(19)];
 };
