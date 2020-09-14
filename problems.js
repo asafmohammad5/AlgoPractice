@@ -2565,3 +2565,19 @@ var encode = function (longUrl) {
 var decode = function (shortUrl) {
   return routeMap[shortUrl.substr(19)];
 };
+
+const minFlips = target => {
+  const len = target.length;
+  let count = 0;
+  let check = false;
+
+  for (i = 0; i < len; i++) {
+
+    if (check !== (target[i] === '1')) {
+      count += 1
+      check = !check
+    }
+  }
+
+  return count;
+}
