@@ -2581,3 +2581,27 @@ const minFlips = target => {
 
   return count;
 }
+
+var getHappyString = function (n, k) {
+  let chars = ['a', 'b', 'c'];
+  let res = []
+
+  function findstr(word) {
+    if (word.length === n) {
+      res.push(word);
+      return;
+    }
+    for (let i = 0; i < chars.length; i++) {
+      if (chars[i] !== word.charAt(word.length - 1)) {
+        findstr(word + chars[i])
+      }
+    }
+  };
+
+  findstr('');
+
+  if (res.length < k) {
+    return '';
+  }
+  return res[k - 1];
+};
