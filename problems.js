@@ -2605,3 +2605,17 @@ var getHappyString = function (n, k) {
   }
   return res[k - 1];
 };
+
+var goodNodes = function (root) {
+  let res = 0;
+
+  const search = (node, max) => {
+    if (!node) return;
+    if (node.val >= max) res++;
+    search(node.left, Math.max(node.val, max));
+    search(node.right, Math.max(node.val, max));
+  }
+  search(root, -Infinity);
+
+  return res;
+};
