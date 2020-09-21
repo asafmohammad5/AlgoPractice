@@ -2619,3 +2619,32 @@ var goodNodes = function (root) {
 
   return res;
 };
+
+
+var maxDepthAfterSplit = function (seq) {
+  let arr = new Array(seq.length).fill(0);
+
+  let stack0 = [];
+  let stack1 = [];
+  for (let i = 0; i < seq.length; i++) {
+    if (seq[i] === "(") {
+      if (stack0 <= stack1) {
+        stack0.push("(");
+        arr[i] = 0;
+      } else {
+        stack1.push("(");
+        arr[i] = 1;
+      }
+    } else {
+      if (stack0 <= stack1) {
+        stack1.pop();
+        arr[i] = 1;
+      } else {
+        stack0.pop();
+        arr[i] = 0;
+      }
+    }
+  }
+
+  return arr;
+};
