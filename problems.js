@@ -2648,3 +2648,12 @@ var maxDepthAfterSplit = function (seq) {
 
   return arr;
 };
+
+var groupAnagrams = function (strs) {
+  const hash = {};
+  for (let s of strs) {
+    let key = s.split('').sort().join('');
+    hash[key] = [...hash[key] || [], s];
+  }
+  return Object.values(hash);
+};
