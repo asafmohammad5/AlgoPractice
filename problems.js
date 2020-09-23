@@ -2657,3 +2657,17 @@ var groupAnagrams = function (strs) {
   }
   return Object.values(hash);
 };
+
+var firstMissingPositive = function (nums) {
+  let small = 1;
+  let i = 0;
+  while (i < nums.length) {
+    if (nums.includes(small)) {
+      small++;
+      i++;
+    } else {
+      return small;
+    }
+  }
+  return small;
+};
