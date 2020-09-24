@@ -2671,3 +2671,28 @@ var firstMissingPositive = function (nums) {
   }
   return small;
 };
+
+var getKth = function (lo, hi, k) {
+
+  let num;
+  let steps;
+  let results = [];
+
+  for (let i = lo; i <= hi; i++) {
+    num = i;
+    steps = 0;
+    while (num !== 1) {
+      if (num % 2 === 0) {
+        num = num / 2;
+      } else {
+        num = num * 3 + 1;
+      }
+      steps++;
+    }
+
+    results.push([i, steps]);
+  }
+
+  return results.sort((a, b) => a[1] - b[1] || a[0] - b[0])[k - 1][0];
+
+};
