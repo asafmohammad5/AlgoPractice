@@ -2696,3 +2696,23 @@ var getKth = function (lo, hi, k) {
   return results.sort((a, b) => a[1] - b[1] || a[0] - b[0])[k - 1][0];
 
 };
+
+var distributeCoins = function (root) {
+  let steps = 0;
+
+  const traverse = (node) => {
+    if (!node) return 0;
+
+    const left = traverse(node.left);
+    const right = traverse(node.right);
+
+    steps += Math.abs(left) + Math.abs(right);
+    console.log(left + right + node.val - 1)
+    return left + right + node.val - 1;
+  }
+
+
+  traverse(root);
+
+  return steps;
+};
