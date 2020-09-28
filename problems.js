@@ -2716,3 +2716,30 @@ var distributeCoins = function (root) {
 
   return steps;
 };
+
+var queensAttacktheKing = function (queens, king) {
+
+  let answer = [];
+
+  search(king[0], king[1], -1, -1);
+  search(king[0], king[1], -1, 0);
+  search(king[0], king[1], -1, 1);
+  search(king[0], king[1], 0, -1);
+  search(king[0], king[1], 0, 1);
+  search(king[0], king[1], 1, -1);
+  search(king[0], king[1], 1, 0);
+  search(king[0], king[1], 1, 1);
+
+  return answer;
+
+  function search(X, Y, x, y) {
+    if (X < 0 || Y < 0 || X > 7 || Y > 7) return null;
+    for (let i = 0; i < queens.length; i++) {
+      if (X == queens[i][0] && Y == queens[i][1]) {
+        answer.push([X, Y])
+        return null;
+      }
+    }
+    search(X + x, Y + y, x, y);
+  }
+};
