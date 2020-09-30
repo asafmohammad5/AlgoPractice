@@ -2743,3 +2743,74 @@ var queensAttacktheKing = function (queens, king) {
     search(X + x, Y + y, x, y);
   }
 };
+
+var pancakeSort = function (A) {
+  let results = [];
+
+  if (A.length < 2) {
+    return results;
+  }
+
+  function findLargestOutofPlaceIndex(A) {
+    let i, l;
+    let max = -Infinity;
+    let index = -1;
+
+    for (i = 0, l = A.length; i < l; i++) {
+      if (A[i] !== i + 1) {
+        if (max < A[i]) {
+          max = A[i];
+          index = i;
+        }
+      }
+    }
+
+    return index;
+  }
+
+  function swap(A, a, b) {
+    let temp = A[a];
+    A[a] = A[b];
+    A[b] = temp;
+  }
+
+
+  function flip(A, index) {
+    let swapCount = Math.floor((index + 1) / 2);
+    let i;
+
+    if (index === 0) {
+      index = 1;
+    }
+
+    for (i = 0; i < swapCount; i++) {
+      swap(A, i, index - i);
+    }
+  }
+
+  let largestOutofPlaceIndex = findLargestOutofPlaceIndex(A);
+
+  while (largestOutofPlaceIndex !== -1) {
+
+    if (largestOutofPlaceIndex !== 0) {
+
+
+      results.push(largestOutofPlaceIndex + 1);
+
+
+      flip(A, largestOutofPlaceIndex);
+    }
+
+
+    if (largestOutofPlaceIndex !== 0 || A[0] !== 1 || A[1] !== 2) {
+
+      results.push(A[0]);
+
+      flip(A, A[0] - 1);
+    }
+
+    largestOutofPlaceIndex = findLargestOutofPlaceIndex(A);
+  }
+
+  return results;
+};
