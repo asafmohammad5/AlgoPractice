@@ -2814,3 +2814,16 @@ var pancakeSort = function (A) {
 
   return results;
 };
+
+var findDuplicates = function (nums) {
+  let results = [];
+  let hash = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (!hash[nums[i]]) {
+      hash[nums[i]] = 1;
+    } else {
+      results.push(nums[i])
+    }
+  }
+  return results;
+};
