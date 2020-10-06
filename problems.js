@@ -2881,3 +2881,24 @@ var spiralMatrixIII = function (R, C, r0, c0) {
   }
   return ans;
 };
+
+var complexNumberMultiply = function (a, b) {
+  const aV = a.split('+');
+  const bV = b.split('+');
+
+  aV[1] = aV[1].replace('i', '');
+  bV[1] = bV[1].replace('i', '');
+
+  let first = parseInt(aV[0]) * parseInt(bV[0]);
+
+
+  let outer = parseInt(aV[0]) * parseInt(bV[1]);
+
+
+  let inner = parseInt(aV[1]) * parseInt(bV[0]);
+
+
+  let last = parseInt(aV[1]) * parseInt(bV[1]) * -1;
+
+  return `${first + last}+${outer + inner}i`;
+};
