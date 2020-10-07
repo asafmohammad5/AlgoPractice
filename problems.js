@@ -2902,3 +2902,60 @@ var complexNumberMultiply = function (a, b) {
 
   return `${first + last}+${outer + inner}i`;
 };
+
+var pseudoPalindromicPaths = function (root) {
+
+  function findP(node, curr) {
+
+    if (!node) {
+
+      res.push([...curr])
+      return
+    }
+
+    if ((node.left && node.right) || (!node.left && !node.right) || (node.left && !node.right)) {
+      findP(node.left, [...curr, node.val])
+    }
+
+    if ((!node.left && node.right) || (node.left && node.right)) {
+      findP(node.right, [...curr, node.val])
+    }
+  }
+  let count = 0
+  let res = []
+
+  findP(root, []);
+
+  for (let i = 0; i < res.length; i++) {
+    let map = {}
+
+    for (let j = 0; j < res[i].length; j++) {
+      let char = res[i][j];
+
+      if (!map[char]) {
+        map[char] = 0
+
+      }
+      map[char]++
+
+    }
+
+    let countOdd = 0
+
+    for (let key in map) {
+
+      if (map[key] % 2 !== 0) {
+        countOdd++
+      }
+      if (countOdd == 2) {
+        break;
+      }
+    }
+    if (countOdd < 2) {
+      count++
+    }
+  }
+
+  return count;
+
+};
