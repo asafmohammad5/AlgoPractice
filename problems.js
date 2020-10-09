@@ -2990,3 +2990,9 @@ var countBattleships = function (board) {
   }
   return count;
 }
+
+// Need more review on binary manipulation. A solution from leetcode
+const countBits = (num) =>
+  Array(num + 1).fill().map((c, i) =>
+    i.toString(2).replace(/0/g, '').length
+  )
