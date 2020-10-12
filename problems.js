@@ -2996,3 +2996,23 @@ const countBits = (num) =>
   Array(num + 1).fill().map((c, i) =>
     i.toString(2).replace(/0/g, '').length
   )
+  
+// Another review topic. XOR
+var countTriplets = function (arr) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let xor = arr[i]
+    console.log(xor)
+    for (let j = i + 1; j < arr.length; j++) {
+      xor ^= arr[j]
+      console.log(xor)
+      console.log("------")
+
+      if (xor == 0) {
+        count += (j - i)
+      }
+    }
+  }
+  return count
+};
