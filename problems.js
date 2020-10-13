@@ -3016,3 +3016,15 @@ var countTriplets = function (arr) {
   }
   return count
 };
+
+const xorQueries = (arr, queries) => {
+  let res = [];
+  for (const q of queries) {
+    let xor;
+    for (let i = q[0]; i <= q[1]; i++) {
+      xor ^= arr[i];
+    }
+    res.push(xor);
+  }
+  return res;
+};
