@@ -3028,3 +3028,34 @@ const xorQueries = (arr, queries) => {
   }
   return res;
 };
+
+var BrowserHistory = function (homepage) {
+  this.arr = [homepage];
+  this.curr = 0;
+};
+
+
+BrowserHistory.prototype.visit = function (url) {
+  this.curr += 1;
+  this.arr.length = this.curr;
+  this.arr.push(url);
+};
+
+
+BrowserHistory.prototype.back = function (steps) {
+  if (steps > this.curr) {
+    this.curr = 0;
+    return this.arr[0];
+  }
+  this.curr -= steps;
+  return this.arr[this.curr];
+};
+
+BrowserHistory.prototype.forward = function (steps) {
+  if (steps >= this.arr.length - this.curr) {
+    this.curr = this.arr.length - 1;
+    return this.arr[this.curr];
+  }
+  this.curr += steps;
+  return this.arr[this.curr];
+};
