@@ -3120,3 +3120,24 @@ var queensAttacktheKing = function (queens, king) {
   }
   return res;
 };
+
+var matrixScore = function (A) {
+  for (let row of A) {
+    if (row[0] == 0) {
+      for (let i = 0; i < row.length; i++)
+        row[i] = (1 + row[i]) % 2;
+    }
+  }
+  let ans = 0;
+  for (let j = 0; j < A[0].length; j++) {
+    let mx1 = 0, mx0 = 0
+    for (let i = 0; i < A.length; i++) {
+      if (A[i][j] == 0)
+        mx0++;
+      else
+        mx1++;
+    }
+    ans += (Math.max(mx0, mx1) * (Math.pow(2, A[0].length - j - 1)));
+  }
+  return ans;
+};
