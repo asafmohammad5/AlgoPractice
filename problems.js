@@ -3176,3 +3176,12 @@ var majorityElement = function (nums) {
     }
   }
 };
+
+var runningSum = function (nums) {
+
+  let sum = 0;
+  return nums.map((elem) => {
+    sum += elem;
+    return sum;
+  })
+};
