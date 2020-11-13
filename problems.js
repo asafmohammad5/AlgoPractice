@@ -3205,3 +3205,19 @@ var canFormArray = function (arr, pieces) {
   }
   return total.length == arr.length;
 };
+
+var maxDepth = function (s) {
+  let res = 0;
+  let check = 0;
+
+  [...s].forEach(char => {
+
+    if (char === "(") {
+      check++;
+      res = Math.max(res, check);
+    } else if (char === ")") check--;
+
+  });
+
+  return res;
+};
