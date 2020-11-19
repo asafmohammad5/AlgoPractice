@@ -3233,3 +3233,23 @@ var balancedStringSplit = function (s) {
   }
   return result
 };
+
+var countGoodTriplets = function (arr, a, b, c) {
+  const len = arr.length;
+  let _a, _b, _c, res = 0;
+
+  for (let i = 0; i < len; i++) {
+    _a = arr[i];
+    for (let j = i + 1; j < len; j++) {
+      _b = arr[j];
+      if (Math.abs(_a - _b) > a) continue;
+      for (let k = j + 1; k < len; k++) {
+        _c = arr[k];
+        if (Math.abs(_b - _c) > b) continue;
+        if (Math.abs(_a - _c) > c) continue;
+        res++;
+      }
+    }
+  }
+  return res;
+};
