@@ -3253,3 +3253,25 @@ var countGoodTriplets = function (arr, a, b, c) {
   }
   return res;
 };
+
+var sumOddLengthSubarrays = function (arr) {
+  let len = arr.length;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    arr[i] = sum;
+  }
+  let window = 3;
+  let sI, eI;
+  while (window <= len) {
+    sI = 0;
+    eI = window - 1;
+    while (eI < len) {
+      sI === 0 ? sum += arr[eI] : sum = sum + arr[eI] - arr[sI - 1];
+      sI++;
+      eI++;
+    }
+    window += 2;
+  }
+  return sum;
+};
