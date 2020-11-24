@@ -3275,3 +3275,49 @@ var sumOddLengthSubarrays = function (arr) {
   }
   return sum;
 };
+
+const MorseMap = {
+  "a": ".-",
+  "b": "-...",
+  "c": "-.-.",
+  "d": "-..",
+  "e": ".",
+  "f": "..-.",
+  "g": "--.",
+  "h": "....",
+  "i": "..",
+  "j": ".---",
+  "k": "-.-",
+  "l": ".-..",
+  "m": "--",
+  "n": "-.",
+  "o": "---",
+  "p": ".--.",
+  "q": "--.-",
+  "r": ".-.",
+  "s": "...",
+  "t": "-",
+  "u": "..-",
+  "v": "...-",
+  "w": ".--",
+  "x": "-..-",
+  "y": "-.--",
+  "z": "--.."
+}
+
+var uniqueMorseRepresentations = function (words) {
+  if (!words) return;
+
+  let morseArr = [];
+
+  for (let word of words) {
+    let wordCode;
+    for (let morse of word) {
+      wordCode += MorseMap[morse]
+    }
+    if (!morseArr.includes(wordCode)) {
+      morseArr.push(wordCode);
+    }
+  }
+  return morseArr.length;
+};
