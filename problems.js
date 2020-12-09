@@ -3321,3 +3321,18 @@ var uniqueMorseRepresentations = function (words) {
   }
   return morseArr.length;
 };
+
+var maximumWealth = function (accounts) {
+  let mWealth = 0;
+
+  for (let i = 0; i < accounts.length; i++) {
+    let wealth = 0;
+    let account = accounts[i];
+    for (let j = 0; j < account.length; j++) {
+      wealth += account[j];
+    }
+    mWealth = Math.max(wealth, mWealth);
+  }
+
+  return mWealth;
+};
