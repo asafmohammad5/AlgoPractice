@@ -3336,3 +3336,17 @@ var maximumWealth = function (accounts) {
 
   return mWealth;
 };
+
+var kidsWithCandies = function (candies, extraCandies) {
+
+  let mCandy = Math.max(...candies);
+  let arr = new Array(candies.length).fill(false);
+
+  for (let i = 0; i < candies.length; i++) {
+    if (candies[i] + extraCandies >= mCandy) {
+      arr[i] = true;
+    }
+  }
+
+  return arr;
+};
