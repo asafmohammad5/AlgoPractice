@@ -3350,3 +3350,15 @@ var kidsWithCandies = function (candies, extraCandies) {
 
   return arr;
 };
+
+var findRepeatedDnaSequences = function (s) {
+  let results = {}, storeHash = {}
+  for (let i = 0; i < s.length; i++) {
+    let substring = s.substring(i, i + 10);
+    if (!storeHash[substring]) storeHash[substring] = true;
+    else if (!results[substring]) {
+      results[substring] = true
+    }
+  }
+  return Object.keys(results)
+};
