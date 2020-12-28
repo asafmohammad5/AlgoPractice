@@ -3421,3 +3421,23 @@ const getNode = (node, n) => {
 
   return node;
 }
+
+var checkArithmeticSubarrays = function (nums, l, r) {
+  let i = 0;
+  let results = [];
+
+  while (i < l.length) {
+    let subArray = nums.slice(l[i], r[i] + 1)
+    results.push(checkSubArray(subArray))
+    i++;
+  }
+  return results;
+};
+
+var checkSubArray = function (array) {
+  array.sort((a, b) => a - b);
+  for (let i = 0; i < array.length - 1; i++) {
+    if ((array[i + 1] - array[i]) !== (array[1] - array[0])) return false
+  }
+  return true;
+}
