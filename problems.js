@@ -3392,3 +3392,32 @@ var sortedArrayToBST = function (nums) {
   node.right = sortedArrayToBST(nums.slice(mid + 1, nums.length));
   return node
 };
+
+const mergeInBetween = (list1, a, b, list2) => {
+  const list2Tail = getTail(list2);
+  const list1B = getNode(list1, b + 1);
+  const list1A = getNode(list1, a - 1);
+
+  list2Tail.next = list1B;
+  list1A.next = list2;
+  return list1;
+};
+
+const getTail = (tail) => {
+  while (tail.next) {
+    tail = tail.next;
+  }
+
+  return tail;
+}
+
+const getNode = (node, n) => {
+  let i = 0;
+
+  while (i !== n) {
+    node = node.next;
+    i++;
+  }
+
+  return node;
+}
