@@ -3465,4 +3465,18 @@ var numWaterBottles = function (numBottles, numExchange) {
 
   }
   return amount
+};    
+
+var maxLengthBetweenEqualCharacters = function (s) {
+  let result = -1;
+  let hash = {};
+
+  for (let i = 0; i < s.length; i++) {
+    hash[s[i]] = i;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    result = Math.max(result, hash[s[i]] - i - 1);
+  }
+  return result;
 };
