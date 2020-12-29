@@ -3441,3 +3441,14 @@ var checkSubArray = function (array) {
   }
   return true;
 }
+
+var bitwiseComplement = function (N) {
+  let binary = N.toString(2);
+  let str = '';
+
+  for (let i of binary) {
+    str += +(!(+i))
+  }
+
+  return parseInt(str, 2);
+};
