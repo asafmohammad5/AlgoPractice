@@ -3480,3 +3480,17 @@ var maxLengthBetweenEqualCharacters = function (s) {
   }
   return result;
 };
+
+var majorityElement = function (nums) {
+  let results = {};
+  let checker = nums.length / 2
+  for (let num of nums) {
+    if (!results[num]) results[num] = 1;
+    else {
+      results[num]++;
+    }
+  }
+  for (let num of nums) {
+    if (results[num] >= checker) return num
+  }
+};
