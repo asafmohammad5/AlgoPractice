@@ -3452,3 +3452,17 @@ var bitwiseComplement = function (N) {
 
   return parseInt(str, 2);
 };
+
+var numWaterBottles = function (numBottles, numExchange) {
+  let amount = numBottles;
+
+  while (numBottles) {
+
+    let empty = Math.floor(numBottles / numExchange)
+    if (!empty) break;
+    amount += empty
+    numBottles = empty + (numBottles % numExchange)
+
+  }
+  return amount
+};
