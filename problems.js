@@ -3510,3 +3510,14 @@ var slowestKey = function (releaseTimes, keysPressed) {
   }
   return largerKey;
 };
+
+var toLowerCase = function (str) {
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let ascii = str.charCodeAt(i);
+    if (ascii >= 65 && ascii <= 90) res += String.fromCharCode(ascii + 32);
+    else result += str.charAt(i);
+  }
+  return result;
+};
