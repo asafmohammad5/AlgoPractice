@@ -3539,3 +3539,12 @@ var countGoodTriplets = function (arr, a, b, c) {
   }
   return result;
 };
+
+var restoreString = function (s, indices) {
+  let strArray = new Array(indices.length).fill("");
+
+  for (let i = 0; i < indices.length; i++) {
+    strArray[indices[i]] = s[i]
+  }
+  return strArray.join("")
+};
