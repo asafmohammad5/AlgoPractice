@@ -3548,3 +3548,19 @@ var restoreString = function (s, indices) {
   }
   return strArray.join("")
 };
+
+const restoreMatrix = (rowSum, colSum) => {
+  const results = [];
+  for (let i = 0; i < rowSum.length; i++) {
+    results[i] = new Array(colSum);
+    for (let j = 0; j < colSum.length; j++) {
+      results[i][j] = Math.min(rowSum[i], colSum[j]);
+
+      rowSum[i] -= results[i][j];
+
+      colSum[j] -= results[i][j];
+    }
+  }
+
+  return results;
+};
