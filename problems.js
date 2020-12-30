@@ -3521,3 +3521,7 @@ var toLowerCase = function (str) {
   }
   return result;
 };
+
+var arrayStringsAreEqual = function (word1, word2) {
+  return word1.reduce((acc, curr) => acc + curr) === word2.reduce((acc, curr) => acc + curr);
+};
