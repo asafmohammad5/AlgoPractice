@@ -3494,3 +3494,19 @@ var majorityElement = function (nums) {
     if (results[num] >= checker) return num
   }
 };
+
+var slowestKey = function (releaseTimes, keysPressed) {
+  let longestTime = releaseTimes[0];
+  let largerKey = keysPressed[0];
+  for (let i = 1; i < releaseTimes.length; i++) {
+    let tempTime = releaseTimes[i] - releaseTimes[i - 1];
+    if (tempTime > longestTime) {
+      longestTime = tempTime;
+      largerKey = keysPressed[i]
+    }
+    else if (tempTime === longestTime) {
+      if (largerKey < keysPressed[i]) largerKey = keysPressed[i]
+    }
+  }
+  return largerKey;
+};
