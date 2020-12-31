@@ -3632,3 +3632,12 @@ var moveZeroes = function (nums) {
 
   return nums
 };
+
+var addDigits = function (num) {
+  if (num < 10) return num;
+
+  let left = Math.floor(num / 10);
+  let right = num % 10;
+  return addDigits(left + right)
+
+};
