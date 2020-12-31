@@ -3564,3 +3564,28 @@ const restoreMatrix = (rowSum, colSum) => {
 
   return results;
 };
+
+var fairCandySwap = function (A, B) {
+  let aSum = 0
+  let bSum = 0
+  const candy = {}
+
+  for (let i = 0; i < A.length; i++) {
+    aSum += A[i]
+  }
+
+  for (let i = 0; i < B.length; i++) {
+    candy[B[i]] = true
+    bSum += B[i]
+  }
+
+  const diff = (bSum - aSum) / 2
+  let neededCandy;
+
+  for (let i = 0; i < A.length; i++) {
+    neededCandy = A[i] + diff
+    if (candy[neededCandy]) {
+      return [A[i], neededCandy]
+    }
+  }
+};
