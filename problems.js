@@ -3589,3 +3589,19 @@ var fairCandySwap = function (A, B) {
     }
   }
 };
+
+var hasAlternatingBits = function (n) {
+  let str = (n).toString(2);
+  let current = str[0];
+
+  for (let i = 1; i < str.length; i++) {
+
+    if (current === str[i]) {
+      return false;
+    }
+
+    current = str[i];
+  }
+
+  return true;
+};
