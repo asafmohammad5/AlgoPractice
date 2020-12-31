@@ -3641,3 +3641,8 @@ var addDigits = function (num) {
   return addDigits(left + right)
 
 };
+
+function thousandSeparator(n) {
+  return ('' + n).split('').reverse()
+    .reduce((total, curr) => total.length % 4 == 3 ? curr + '.' + total : curr + total, '');
+}
