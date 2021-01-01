@@ -3646,3 +3646,18 @@ function thousandSeparator(n) {
   return ('' + n).split('').reverse()
     .reduce((total, curr) => total.length % 4 == 3 ? curr + '.' + total : curr + total, '');
 }
+
+var reverseOnlyLetters = function (s) {
+  const filter = s.split(``).filter(v => /[a-zA-Z]/.test(v));
+  const arr = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (/[a-zA-Z]/.test(s[i])) {
+      arr.push(filter.pop())
+    } else {
+      arr.push(s[i])
+    }
+  }
+
+  return arr.join(``)
+};
