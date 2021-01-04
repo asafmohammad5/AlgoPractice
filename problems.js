@@ -3702,3 +3702,24 @@ var countPrimeSetBits = function (L, R) {
   }
   return result;;
 };
+
+var binaryGap = function (N) {
+  let num = N.toString(2);
+  var max = 0;
+  var counter = 0;
+
+  for (let i = 0; i < num.length; i++) {
+    if (num[i] === "0") counter++;
+    if (num[i] === "1" && !counter) {
+      counter = 1;
+      continue;
+    }
+
+    if (num[i] === "1" && counter) {
+      if (max < counter) max = counter;
+      counter = 1;
+    }
+  }
+
+  return max;
+};
