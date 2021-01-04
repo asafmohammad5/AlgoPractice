@@ -3661,3 +3661,18 @@ var reverseOnlyLetters = function (s) {
 
   return arr.join(``)
 };
+
+var RecentCounter = function () {
+  this.tArray = [];
+};
+RecentCounter.prototype.ping = function (t) {
+  this.tArray.push(t);
+  let timeStart = t - 3000;
+  let count = 0;
+  for (let i = 0; i < this.tArray.length; i++) {
+    if (this.tArray[i] >= timeStart || this.tArray <= t) {
+      count++;
+    }
+  }
+  return count;
+};
