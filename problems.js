@@ -3676,3 +3676,29 @@ RecentCounter.prototype.ping = function (t) {
   }
   return count;
 };
+
+var isPrime = function (num) {
+  if (num <= 1) return false;
+  let i = 2;
+  let count = 1;
+  while (i <= num) {
+    if (count > 2) return false;
+    if (num % i === 0) count++;
+    i++;
+  }
+  return true;
+}
+var countPrimeSetBits = function (L, R) {
+  let start = L;
+  let result = 0;
+  while (start >= L && start <= R) {
+    let countB = 0;
+    let binary = start.toString(2).split("");
+    binary = binary.forEach(num => {
+      if (num === '1') countB++;
+    })
+    if (isPrime(countB)) result++;
+    start++
+  }
+  return result;;
+};
