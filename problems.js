@@ -3738,7 +3738,7 @@ var deepestLeavesSum2 = function (root) {
   return hash[max];
 };
 
-/// Algo expert problem below
+/// Algo expert problems below
 class BinaryTree {
   constructor(value) {
     this.value = value;
@@ -3767,4 +3767,17 @@ function addSums(node, sum, numArray) {
   addSums(node.right, newSum, numArray);
 }
 
+
+function isValidSubsequence(array, sequence) {
+  let checking = true
+  while (checking) {
+    let chekr = array.indexOf(sequence.shift());
+    if (chekr === -1) return false;
+    array = array.slice(chekr + 1, array.length)
+    if (sequence.length <= 0) {
+      checking = false;
+      return true;
+    }
+  }
+}
 // Algo expert above
