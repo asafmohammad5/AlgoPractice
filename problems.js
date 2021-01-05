@@ -3736,5 +3736,35 @@ var deepestLeavesSum2 = function (root) {
   }
   dfs(root);
   return hash[max];
-
 };
+
+/// Algo expert problem below
+class BinaryTree {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function branchSums(root) {
+  let numArray = [];
+  addSums(root, 0, numArray);
+  return numArray;
+}
+
+function addSums(node, sum, numArray) {
+  if (!node) return;
+
+  let newSum = node.value + sum;
+
+  if (!node.left && !node.right) {
+    numArray.push(newSum);
+    return;
+  }
+
+  addSums(node.left, newSum, numArray);
+  addSums(node.right, newSum, numArray);
+}
+
+// Algo expert above
