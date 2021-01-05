@@ -3723,3 +3723,18 @@ var binaryGap = function (N) {
 
   return max;
 };
+
+var deepestLeavesSum2 = function (root) {
+  let hash = {}, max = 0;
+
+  function dfs(root, callNum = 0) {
+    max = Math.max(max, callNum)
+    if (!hash[callNum]) hash[callNum] = 0;
+    hash[callNum] += root.val
+    if (root.left) dfs(root.left, callNum + 1);
+    if (root.right) dfs(root.right, callNum + 1);
+  }
+  dfs(root);
+  return hash[max];
+
+};
