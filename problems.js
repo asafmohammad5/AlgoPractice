@@ -3821,6 +3821,25 @@ function threeNumberSum(array, targetSum) {
   return triplets;
 }
 
+function moveElementToEnd(array, toMove) {
+  let i = 0;
+  let j = array.length - 1;
+  while (i < j) {
+    while (i < j && array[j] === toMove) j--;
+    if (array[i] === toMove) {
+      swap(i, j, array);
+    }
+    i++;
+  }
+  return array;
+}
+
+function swap(i, j, array) {
+  const ele = array[j];
+  array[j] = array[i];
+  array[i] = ele;
+}
+
 // Algo expert above
 
 
@@ -3830,7 +3849,7 @@ var buddyStrings = function (A, B) {
     return false;
   }
 
-  if (A == B) {
+  if (A === B) {
     let s = new Set();
 
     for (let i = 0; i < A.length; i++) {
