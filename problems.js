@@ -3898,6 +3898,37 @@ function swapper(tree) {
   tree.right = left;
 }
 
+function smallestDifference(arrayO, arrayT) {
+  arrayO.sort((a, b) => a - b);
+  arrayT.sort((a, b) => a - b);
+  let smallest = Infinity;
+  let closest = Infinity;
+  let idxOne = 0;
+  let idxTwo = 0;
+  let array = [];
+  while (idxOne < arrayO.length && idxTwo < arrayT.length) {
+    let numO = arrayO[idxOne];
+    let numT = arrayT[idxTwo];
+    if (numO < numT) {
+      closest = numT - numO;
+      idxOne++;
+    } else if (numT < numO) {
+      closest = numO - numT;
+      idxTwo++;
+    } else {
+      return [numO, numT]
+    }
+
+    if (smallest > closest) {
+      smallest = closest;
+      array = [numO, numT]
+
+    }
+  }
+  return array;
+
+}
+
 // Algo expert above
 
 
