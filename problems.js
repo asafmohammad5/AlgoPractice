@@ -3884,6 +3884,13 @@ class BST {
     }
     return true
   }
+}
+
+function swapper(tree) {
+  const left = tree.left;
+  tree.left = tree.right;
+  tree.right = left;
+}
 
 function invertBinaryTree(tree) {
   if (tree === null) return;
@@ -3892,11 +3899,7 @@ function invertBinaryTree(tree) {
   invertBinaryTree(tree.right)
 }
 
-function swapper(tree) {
-  const left = tree.left;
-  tree.left = tree.right;
-  tree.right = left;
-}
+
 
 function smallestDifference(arrayO, arrayT) {
   arrayO.sort((a, b) => a - b);
@@ -3928,6 +3931,27 @@ function smallestDifference(arrayO, arrayT) {
   return array;
 
 }
+
+class BST {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function validateBst(tree) {
+  return helper(tree, -Infinity, Infinity);
+}
+
+function helper(tree, min, max) {
+  if (tree === null) return true;
+  if (tree.value >= max || tree.value < min) return false;
+  const left = helper(tree.left, min, tree.value);
+  return left && helper(tree.right, tree.value, max)
+
+}
+
 
 // Algo expert above
 
