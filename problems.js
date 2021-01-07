@@ -3992,3 +3992,19 @@ var minPartitions = function (n) {
 
   return max
 };
+
+var maxWidthOfVerticalArea = function (points) {
+  let result = 0;
+  let xAxis = [];
+
+  for (let point of points) {
+    xAxis.push(point[0])
+  }
+
+  xAxis = xAxis.sort((a, b) => a - b);
+
+  for (let i = 0; i < xAxis.length - 1; i++) {
+    result = Math.max(result, xAxis[i + 1] - xAxis[i])
+  }
+  return result;
+};
