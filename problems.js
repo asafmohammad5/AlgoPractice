@@ -3981,3 +3981,14 @@ var buddyStrings = function (A, B) {
 
   return diff.length == 2 && A.charAt(diff[0]) == B.charAt(diff[1]) && A.charAt(diff[1]) == B.charAt(diff[0]);
 };
+
+var minPartitions = function (n) {
+  let max = 0;
+
+  for (let i of n) {
+
+    max = max < i ? i : max;
+  }
+
+  return max
+};
