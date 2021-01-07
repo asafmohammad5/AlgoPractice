@@ -3993,18 +3993,28 @@ var minPartitions = function (n) {
   return max
 };
 
+// *OLD*
+// var maxWidthOfVerticalArea = function (points) {
+//   let result = 0;
+//   let xAxis = [];
+
+//   for (let point of points) {
+//     xAxis.push(point[0])
+//   }
+
+//   xAxis = xAxis.sort((a, b) => a - b);
+
+//   for (let i = 0; i < xAxis.length - 1; i++) {
+//     result = Math.max(result, xAxis[i + 1] - xAxis[i])
+//   }
+//   return result;
+// };
+
 var maxWidthOfVerticalArea = function (points) {
   let result = 0;
-  let xAxis = [];
-
-  for (let point of points) {
-    xAxis.push(point[0])
-  }
-
-  xAxis = xAxis.sort((a, b) => a - b);
-
-  for (let i = 0; i < xAxis.length - 1; i++) {
-    result = Math.max(result, xAxis[i + 1] - xAxis[i])
+  points = points.sort((a, b) => a[0] - b[0]);
+  for (let i = 0; i < points.length - 1; i++) {
+    result = Math.max(result, points[i + 1][0] - points[i][0])
   }
   return result;
 };
