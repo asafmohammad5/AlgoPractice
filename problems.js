@@ -4061,3 +4061,22 @@ var maxWidthOfVerticalArea = function(points) {
     }
     return result;
 };
+
+var countVowelStrings = function (n) {
+  let result = 0
+
+  helper(n, 0)
+
+  function helper(n, sIdx) {
+
+    if (n === 0) {
+      result++
+      return
+    }
+    for (let i = sIdx; i < 5; i++) {
+      helper(n - 1, i)
+    }
+  }
+
+  return result
+};
