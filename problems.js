@@ -3952,6 +3952,23 @@ function helper(tree, min, max) {
 
 }
 
+function bubbleSort(array) {
+  let sorted = false;
+
+  while (!sorted) {
+    sorted = true;
+    for (i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        let num = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = num;
+        sorted = false;
+      }
+    }
+  }
+  return array;
+}
+
 
 // Algo expert above
 
@@ -4010,11 +4027,11 @@ var minPartitions = function (n) {
 //   return result;
 // };
 
-var maxWidthOfVerticalArea = function (points) {
-  let result = 0;
-  points = points.sort((a, b) => a[0] - b[0]);
-  for (let i = 0; i < points.length - 1; i++) {
-    result = Math.max(result, points[i + 1][0] - points[i][0])
-  }
-  return result;
+var maxWidthOfVerticalArea = function(points) {
+    let result = 0;
+    points = points.sort((a, b) => a[0] - b[0]);
+    for (let i = 0; i < points.length - 1;i++) {
+        result = Math.max(result, points[i+1][0] - points[i][0])
+    }
+    return result;
 };
