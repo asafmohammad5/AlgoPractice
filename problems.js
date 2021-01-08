@@ -4080,3 +4080,37 @@ var countVowelStrings = function (n) {
 
   return result
 };
+
+var BrowserHistory = function (homepage) {
+  this.history = [homepage];
+  this.incr = 1;
+};
+
+
+BrowserHistory.prototype.visit = function (url) {
+  if (this.incr !== this.history.length) {
+    this.history = this.history.slice(0, this.incr);
+  }
+  this.incr++;
+  this.history.push(url);
+};
+
+
+BrowserHistory.prototype.back = function (steps) {
+  if (this.incr - steps < 1) {
+    this.incr = 1;
+  } else {
+    this.incr = this.incr - steps;
+  }
+  return this.history[this.incr - 1];
+};
+
+
+BrowserHistory.prototype.forward = function (steps) {
+  if (this.incr + steps > this.history.length) {
+    this.incr = this.history.length
+  } else {
+    this.incr = this.incr + steps
+  }
+  return this.history[this.incr - 1];
+};
