@@ -3984,6 +3984,17 @@ function getLetter(alphabet, letter, key) {
   return newIdx <= 25 ? alphabet[newIdx] : alphabet[(newIdx % 25) - 1]
 }
 
+function isPalindrome(string) {
+  let leftIdx = 0;
+  let rightIdx = string.length - 1;
+  while (leftIdx < rightIdx) {
+    if (string[leftIdx] !== string[rightIdx]) return false;
+    leftIdx++;
+    rightIdx--;
+  }
+
+  return leftIdx === rightIdx
+}
 
 // Algo expert above
 
