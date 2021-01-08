@@ -3969,6 +3969,21 @@ function bubbleSort(array) {
   return array;
 }
 
+function caesarCipherEncryptor(string, key) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const newKey = key % 26
+  const newStr = [];
+  for (const letter of string) {
+    newStr.push(getLetter(alphabet, letter, newKey))
+  }
+  return newStr.join('');
+}
+
+function getLetter(alphabet, letter, key) {
+  const newIdx = alphabet.indexOf(letter) + key;
+  return newIdx <= 25 ? alphabet[newIdx] : alphabet[(newIdx % 25) - 1]
+}
+
 
 // Algo expert above
 
