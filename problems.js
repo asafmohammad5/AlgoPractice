@@ -4089,6 +4089,25 @@ function breaks(checker, prev, curr) {
 // Algo expert above
 
 
+// Optimal solution needs math!
+var pathInZigZagTree = function (label) {
+  let x = Math.log2(label) | 0
+  let res = Array(x + 1)
+  res[x] = label
+  let offset = Math.pow(2, x)
+  let pos = label - offset + 1
+  if (x % 2 == 1) pos = offset - pos + 1
+
+  while (x > 0) {
+    pos = Math.ceil(pos / 2)
+    offset >>= 1
+    x--
+    if (x % 2 == 1) label = 2 * offset - pos
+    else label = offset + pos - 1
+    res[x] = label
+  }
+  return res
+};
 
 var buddyStrings = function (A, B) {
   if (A.length != B.length) {
