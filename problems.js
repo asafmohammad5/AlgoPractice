@@ -3996,6 +3996,20 @@ function isPalindrome(string) {
   return leftIdx === rightIdx
 }
 
+function nodeDepths(root) {
+  let resultDepths = 0;
+  let stack = [{ node: root, depth: 0 }];
+  while (stack.length) {
+    let { node, depth } = stack.pop();
+    console.log(node)
+    if (node === null) continue;
+    resultDepths += depth;
+    stack.push({ node: node.left, depth: depth + 1 });
+    stack.push({ node: node.right, depth: depth + 1 })
+  }
+  return resultDepths;
+}
+
 // Algo expert above
 
 
