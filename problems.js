@@ -4010,6 +4010,28 @@ function nodeDepths(root) {
   return resultDepths;
 }
 
+function runLengthEncoding(string) {
+  const resultArray = [];
+  let counter = 1;;
+
+  for (let i = 1; i < string.length; i++) {
+    let currentChar = string[i];
+    let lastChar = string[i - 1]
+
+    if (currentChar !== lastChar || counter === 9) {
+      resultArray.push(counter.toString());
+      resultArray.push(lastChar);
+      counter = 0;
+    }
+    counter++;
+  }
+
+  resultArray.push(counter.toString());
+  resultArray.push(string[string.length - 1]);
+
+  return resultArray.join("")
+}
+
 // Algo expert above
 
 
