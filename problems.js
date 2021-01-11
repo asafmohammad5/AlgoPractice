@@ -4032,6 +4032,36 @@ function runLengthEncoding(string) {
   return resultArray.join("")
 }
 
+function spiralTraverse(array) {
+  const result = [];
+  spiralF(array, 0, array.length - 1, 0, array[0].length - 1, result);
+  return result;
+}
+
+function spiralF(array, startR, endR, startC, endC, result) {
+  if (startR > endR || startC > endC) return;
+
+  for (let col = startC; col <= endC; col++) {
+    result.push(array[startR][col])
+  }
+
+  for (let row = startR + 1; row <= endR; row++) {
+    result.push(array[row][endC])
+  }
+
+  for (let col = endC - 1; col >= startC; col--) {
+    if (startR === endR) break;
+    result.push(array[endR][col])
+  }
+
+  for (let row = endR - 1; row >= startR + 1; row--) {
+    if (startC === endC) break;
+    result.push(array[row][startC])
+  }
+
+  spiralF(array, startR + 1, endR - 1, startC + 1, endC - 1, result);
+}
+
 // Algo expert above
 
 
