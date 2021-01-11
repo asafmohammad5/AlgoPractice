@@ -4062,6 +4062,30 @@ function spiralF(array, startR, endR, startC, endC, result) {
   spiralF(array, startR + 1, endR - 1, startC + 1, endC - 1, result);
 }
 
+function isMonotonic(array) {
+  if (array.length <= 2) return true;
+
+  let checker = array[1] - array[0];
+  for (let i = 2; i < array.length; i++) {
+    if (checker === 0) {
+      checker = array[i] - array[i - 1];
+      continue;
+    }
+
+    if (breaks(checker, array[i - 1], array[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function breaks(checker, prev, curr) {
+  let differ = curr - prev;
+  if (checker > 0) return differ < 0;
+  return differ > 0;
+}
+
 // Algo expert above
 
 
