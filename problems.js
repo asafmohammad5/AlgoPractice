@@ -4309,3 +4309,14 @@ const delNodes = (root, to_delete) => {
 
   return result;
 };
+
+var numTimesAllBlue = function (light) {
+  let count = 0;
+  let max = 0;
+  for (let i = 0; i < light.length; i++) {
+    if (light[i] > max) max = light[i];
+    if (i + 1 === max) count++;
+  }
+
+  return count;
+};
