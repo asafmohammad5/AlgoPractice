@@ -4383,3 +4383,26 @@ var maxAncestorDiff = function (root) {
   dfs(root, root.val, root.val);
   return res;
 };
+
+var isValid = function (s) {
+  let obj = {
+    ")": "(",
+    "]": "[",
+    "}": "{"
+  };
+  let stack = [];
+  stack.push(s[0]);
+  for (let i = 1; i < s.length; i++) {
+    if (s[i] === "(" || s[i] === "[" || s[i] === "{") {
+      stack.push(s[i])
+    } else {
+      if (stack[stack.length - 1] === obj[s[i]]) {
+        stack.pop();
+      } else {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+
+};
