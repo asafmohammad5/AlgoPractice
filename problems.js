@@ -4336,3 +4336,13 @@ var isMonotonic = function (A) {
 
   return increase === true || decrease == true;
 };
+
+//still need to go over this problem, solution pull from leetcode. Mine didnt pass all specs
+let xorQueries = (A, queries) => {
+  let N = A.length, X = new Array(N + 1).fill(0), ans = [];
+  for (let i = 1; i <= N; ++i)
+    X[i] = X[i - 1] ^ A[i - 1];
+  for (let [i, j] of queries)
+    ans.push(X[i] ^ X[j + 1]);
+  return ans;
+};
