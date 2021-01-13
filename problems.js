@@ -4356,3 +4356,30 @@ var constructFromPrePost = function (pre, post) {
   res.right = constructFromPrePost(pre.slice(indexOfLeft + 2), post.slice(indexOfLeft + 1));
   return res;
 };
+
+var maxAncestorDiff = function (root) {
+  let res = -1;
+  const dfs = (node, max, min) => {
+
+    const diff = Math.max(Math.abs(node.val - max), Math.abs(node.val - min));
+
+    res = Math.max(res, diff);
+    console.log(res)
+
+
+    const maxC = Math.max(node.val, max);
+  
+    const minC = Math.min(node.val, min);
+
+    if (node.left) {
+      dfs(node.left, maxC, minC);
+    }
+
+    if (node.right) {
+      dfs(node.right, maxC, minC);
+    }
+  }
+
+  dfs(root, root.val, root.val);
+  return res;
+};
