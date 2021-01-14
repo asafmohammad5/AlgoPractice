@@ -4404,5 +4404,21 @@ var isValid = function (s) {
     }
   }
   return stack.length === 0;
+};
 
+var xorQueries = function (arr, queries) {
+  let results = [];
+  let xorResults = [];
+
+  xorResults[0] = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    xorResults.push(arr[i] ^ xorResults[i - 1]);
+  }
+
+  for (const [start, end] of queries) {
+    results.push(xorResults[start] ^ xorResults[end] ^ arr[start]);
+  }
+
+  return results;
 };
