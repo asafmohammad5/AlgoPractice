@@ -4422,3 +4422,25 @@ var xorQueries = function (arr, queries) {
 
   return results;
 };
+
+let displayTable = orders => {
+  let hash = {};
+  let items = new Set();
+  for (let [_, table, item] of orders) {
+    items.add(item);
+    if (!hash[table]) hash[table] = {};
+    if (!hash[table][item]) hash[table][item] = 0;
+    hash[table][item]++;
+  }
+  let tables = [...Object.entries(hash)];
+  tables.sort((a, b) => (a[0]) - (b[0]));
+  items = [...items].sort();
+  let header = ['Table'].concat(items);
+  let res = [header];
+  tables.forEach(table => {
+    let next = [table[0]];
+    items.forEach(item => next.push(table[1][item] ? table[1][item].toString() : '0'));
+    res.push(next);
+  })
+  return res;
+};
