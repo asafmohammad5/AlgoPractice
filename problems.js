@@ -4461,5 +4461,54 @@ function arrayOfProducts(array) {
     rightProd *= array[i];
   }
   return results
-}
+};
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+const countSubstrings = (s, t) => {
+  let nS = s.length;
+  let nT = t.length;
+
+  let setS = [];
+  let setT = [];
+
+  for (let i = 0; i < nS; i++) {
+    for (let j = i; j < nS; j++) {
+      let subss = s.slice(i, j + 1);
+      if (subss.length != 0) setS.push(subss);
+    }
+  };
+  for (let i = 0; i < nT; i++) {
+    for (let j = i; j < nT; j++) {
+      let subst = t.slice(i, j + 1);
+      if (subst.length != 0) setT.push(subst);
+    }
+  };
+
+  let count = 0;
+  setS.forEach(s => {
+    setT.forEach(t => {
+      if (check(s, t) && s != t && s.length == t.length) {
+        count++;
+      }
+    });
+  });
+  return count;
+};
+
+const check = (short, long) => {
+  let diff = long.length - short.length;
+  let count = 0;
+  for (let i = 0; i < short.length; i++) {
+    if (count > 1) return false;
+    if (short[i] != long[i]) {
+      count++;
+    }
+  }
+  if ((diff + count) > 1) return false;
+  return true;
+};
 
