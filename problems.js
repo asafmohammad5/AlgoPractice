@@ -4512,3 +4512,18 @@ const check = (short, long) => {
   return true;
 };
 
+function firstDuplicateValue(array) {
+
+  let appeared = new Set();
+
+  for (let num of array) {
+    if (appeared.has(num)) return num;
+    else {
+      appeared.add(num)
+    }
+  }
+  return -1
+}
+
+
+
