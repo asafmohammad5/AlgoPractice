@@ -4551,5 +4551,24 @@ function isOverlap([s1, e1], [s2, e2]) {
   return (s2 <= e1 && e2 >= s1) || (s1 <= e2 && e1 >= s2);
 }
 
+var halvesAreAlike = function (s) {
+  let vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
+
+  let mid = s.length / 2;
+  let countLet = 0;
+  for (let lett of s) {
+    if (vowels.has(lett)) {
+      countLet++;
+    }
+    mid--
+    if (mid === 0) {
+      countLet *= -1;
+    }
+
+  }
+
+  return countLet === 0
+};
+
 
 
