@@ -4570,5 +4570,23 @@ var halvesAreAlike = function (s) {
   return countLet === 0
 };
 
+var selfDividingNumbers = function (left, right) {
+  const results = [];
+  while (left <= right) {
+    if (isDividing(left)) results.push(left);
+    left++;
+  }
+  return results
+};
+
+const isDividing = function (num) {
+  let numS = num.toString().split('');
+  for (let digit of numS) {
+    if (parseInt(digit) === 0) return false;
+    if (num % digit !== 0) return false;
+  }
+  return true;
+};
+
 
 
