@@ -4610,5 +4610,22 @@ function depth(node) {
   return 1 + Math.max(left, right);
 }
 
+var checkIfCanBreak = function (s1, s2) {
+  s1 = s1.split("").sort();
+  s2 = s2.split("").sort();
 
+  let i = 0;
+
+  for (; i < s1.length; i++) {
+    if (s1[i] < s2[i]) break;
+  }
+  if (i == s1.length) return true;
+
+  i = 0;
+
+  for (; i < s2.length; i++) {
+    if (s2[i] < s1[i]) return false;
+  }
+  return true;
+};
 
