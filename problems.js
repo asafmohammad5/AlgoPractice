@@ -4629,3 +4629,35 @@ var checkIfCanBreak = function (s1, s2) {
   return true;
 };
 
+var queensAttacktheKing = function (queens, king) {
+  let [xK, yK] = king;
+  let moves = new Set();
+  let results = [];
+
+  for (let [x, y] of queens) {
+
+    moves.add(x + "," + y);
+  }
+
+  const search = (x, y, dx, dy) => {
+
+    if (x < 0 || y < 0 || x > 7 || y > 7) return;
+    if (moves.has(x + "," + y)) {
+      results.push([x, y]);
+      return;
+    };
+
+    search(x + dx, y + dy, dx, dy);
+  }
+
+
+  for (let i = -1; i < 2; i++) {
+    for (let j = -1; j < 2; j++) {
+
+      if (i === 0 && j === 0) continue;
+      search(xK, yK, i, j);
+    }
+  }
+
+  return results;
+};
