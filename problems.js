@@ -4661,3 +4661,25 @@ var queensAttacktheKing = function (queens, king) {
 
   return results;
 };
+
+var numSplits = function (s) {
+  const s0 = new Set();
+  const s1 = new Set();
+
+  const arr = [];
+
+  for (let i = 0; i < s.length; ++i) {
+    s0.add(s[i]);
+    arr[i] = [s0.size, 0];
+  }
+  console.log(arr)
+
+  for (let i = s.length - 1; i > 0; --i) {
+    s1.add(s[i]);
+    arr[i - 1][1] = s1.size;
+  }
+  console.log(arr)
+  console.log(s0)
+  console.log(s1)
+  return arr.filter(a => a[0] == a[1]).length;
+};
