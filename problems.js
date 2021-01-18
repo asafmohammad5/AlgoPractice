@@ -4683,3 +4683,33 @@ var numSplits = function (s) {
   console.log(s1)
   return arr.filter(a => a[0] == a[1]).length;
 };
+
+var minSetSize = function (arr) {
+  let hash = {};
+  let length = arr.length / 2;
+  let count = 0;
+  let results = 0;
+  for (let num of arr) {
+    if (!hash[num]) hash[num] = 1;
+    else hash[num]++;
+  }
+  let sortable = [];
+  for (var num in hash) {
+    sortable.push([num, hash[num]]);
+  };
+  sortable.sort(function (a, b) {
+    return a[1] - b[1];
+  });
+
+  if (Object.values(hash).length === 1) return 1;
+  for (let i = sortable.length - 1; i >= 0; i--) {
+    let counter = sortable[i][1]
+
+    if (count <= length) {
+      count += counter;
+      results++;
+    }
+    if (count === length) return results;
+  }
+  return results;
+};ls
