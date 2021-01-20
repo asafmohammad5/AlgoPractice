@@ -4793,3 +4793,19 @@ area > 3000000 OR
 population > 25000000
 
 //SQL
+
+var maximum69Number = function (num) {
+  let numArr = num.toString().split("");
+  let i = 0;
+  let change = 0;
+
+  while (change === 0 && i < numArr.length) {
+    if (numArr[i] === "6") {
+      numArr[i] = "9";
+      change++;
+
+    }
+    i++;
+  }
+  return numArr.join("")
+}; 
