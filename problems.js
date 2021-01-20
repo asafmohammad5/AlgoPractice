@@ -4741,3 +4741,26 @@ var numIdenticalPairs = function (nums) {
   }
   return count
 };
+
+var interpret = function (command) {
+  let str = "";
+
+  for (let i = 0; i < command.length; i++) {
+
+    if (command[i] == "G") {
+      str += "G";
+    }
+
+    if (command[i] == "(" && command[i + 1] == ")") {
+      str += "o";
+      i++;
+    }
+
+    if (command[i] == "(" && command[i + 1] == "a") {
+      str += "al";
+      i = i + 3;
+    }
+  }
+
+  return str;
+};
