@@ -4818,3 +4818,32 @@ var maximum69Number = function (num) {
 //          WHEN 'f' THEN 'm'
 // END
 //SQL
+
+var sortString = function (s) {
+  let temp = new Array(26).fill(0);
+  let results = [];
+
+  for (let i = 0; i < s.length; i++) {
+    temp[s.charCodeAt(i) - 97] += 1;
+  }
+
+  let checker = true;
+  
+  while (results.length < s.length) {
+    for (let i = 0; i < temp.length; i++) {
+      let pos = i;
+      if (!checker) {
+        pos = 25 - i;
+      }
+      if (temp[pos] !== 0) {
+        results.push(String.fromCharCode(pos + 97));
+        temp[pos] -= 1;
+      }
+    }
+
+    checker = !checker;
+  }
+  results = results.join('');
+
+  return results;
+};
