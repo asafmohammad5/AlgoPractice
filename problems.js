@@ -4782,16 +4782,15 @@ var xorOperation = function (n, start) {
 };
 
 //SQL
-SELECT
-  name,
-  population,
-  area
-FROM
-world
-WHERE
-area > 3000000 OR
-population > 25000000
-
+// SELECT
+ //  name,
+ //  population,
+ //  area
+// FROM
+//   world
+// WHERE
+//   area > 3000000 OR
+//   population > 25000000
 //SQL
 
 var maximum69Number = function (num) {
@@ -4809,3 +4808,13 @@ var maximum69Number = function (num) {
   }
   return numArr.join("")
 }; 
+
+//SQL
+// UPDATE
+//    salary
+// SET
+//    sex = CASE sex
+//          WHEN 'm' THEN 'f'
+//          WHEN 'f' THEN 'm'
+// END
+//SQL
