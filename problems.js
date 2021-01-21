@@ -4828,7 +4828,7 @@ var sortString = function (s) {
   }
 
   let checker = true;
-  
+
   while (results.length < s.length) {
     for (let i = 0; i < temp.length; i++) {
       let pos = i;
@@ -4847,3 +4847,19 @@ var sortString = function (s) {
 
   return results;
 };
+//AlgoExpert
+function minNumberOfCoinsForChange(n, denoms) {
+  let results = new Array(n + 1).fill(Infinity);
+
+  results[0] = 0;
+
+  for (let den of denoms) {
+    for (let amount = 0; amount < results.length; amount++) {
+      if (den <= amount) {
+        results[amount] = Math.min(results[amount], results[amount - den] + 1)
+      }
+    }
+  }
+  return results[n] !== Infinity ? results[n] : -1
+};
+//AlgoExpert
