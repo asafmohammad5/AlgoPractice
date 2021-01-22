@@ -4881,3 +4881,9 @@ var freqAlphabets = function (s) {
 
   return resultStr;
 };
+
+var maxProduct = function (nums) {
+  nums = nums.sort((a, b) => a - b);
+  let l = nums.length - 1;
+  return (nums[l] - 1) * (nums[l - 1] - 1);
+};
