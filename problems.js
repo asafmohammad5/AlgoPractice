@@ -4863,3 +4863,21 @@ function minNumberOfCoinsForChange(n, denoms) {
   return results[n] !== Infinity ? results[n] : -1
 };
 //AlgoExpert
+
+var freqAlphabets = function (s) {
+  let offset = 96;
+  let resultStr = '';
+
+  for (let i = 0; i < s.length; i++) {
+    let curr = s[i];
+
+    if (s[i + 2] === '#') {
+      curr = s.slice(i, i + 2);
+      i += 2;
+    }
+
+    resultStr += String.fromCharCode(parseInt(curr) + offset);
+  }
+
+  return resultStr;
+};
