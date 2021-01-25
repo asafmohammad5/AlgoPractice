@@ -4932,3 +4932,12 @@ var GetImportance = function (employees, id) {
   }
   return results;
 };
+
+//SQL
+//  SELECT a.Name AS Employee
+//  FROM Employee a,
+//    Employee b
+//  WHERE a.Salary > b.Salary
+//  AND a.ManagerId = b.Id
+//SQL
+
