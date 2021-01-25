@@ -4941,3 +4941,19 @@ var GetImportance = function (employees, id) {
 //  AND a.ManagerId = b.Id
 //SQL
 
+var findTheDifference = function (s, t) {
+  const hash = {};
+  for (let lett of t) {
+    if (!hash[lett]) hash[lett] = 1;
+    else {
+      hash[lett]++;
+    }
+  }
+  for (let lett of s) {
+    if (hash[lett] > 1) hash[lett]--;
+    else {
+      delete hash[lett]
+    }
+  }
+  return Object.keys(hash)[0]
+};
