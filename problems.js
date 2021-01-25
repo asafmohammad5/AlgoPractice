@@ -4910,3 +4910,25 @@ var romanToInt = function (s) {
   }
   return integer
 };
+
+var GetImportance = function (employees, id) {
+
+  let map = new Map();
+  let results = 0;
+
+  for (let i = 0; i < employees.length; i++) {
+    const { id, importance, subordinates } = employees[i]
+    map.set(id, { importance, subordinates })
+  }
+
+  const root = map.get(id), arr = [root];
+
+  while (arr.length) {
+    const { id, importance, subordinates } = arr.shift()
+    for (let i = 0; i < subordinates.length; i++) {
+      arr.push(cache.get(subordinates[i]))
+    }
+    results += importance;
+  }
+  return results;
+};
