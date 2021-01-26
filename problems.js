@@ -4973,3 +4973,17 @@ var isAnagram = function (s, t) {
 
   return true;
 };
+
+var arrayRankTransform = function (arr) {
+  const sort = arr.slice().sort((a, b) => a - b);
+  const rank = {};
+
+  for (let i = 0, r = 0; i < sort.length; i += 1) {
+    if (sort[i] !== sort[i - 1]) {
+      r += 1;
+      rank[sort[i]] = r;
+    }
+  }
+
+  return arr.map(v => rank[v]);
+};
