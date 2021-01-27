@@ -5005,3 +5005,24 @@ var countBinarySubstrings = function (s) {
 
   return result;
 };
+
+var rotatedDigits = function (N) {
+  let count = 0;
+
+  for (let i = 1; i <= N; i++) {
+    if (isValid(i)) count++;
+  }
+  return count;
+};
+
+const isValid = function (num) {
+  let valid = false;
+  while (num) {
+    const a = num % 10;
+    if (a === 3 || a === 4 || a === 7) return false;
+    if (a === 2 || a === 5 || a === 6 || a === 9) valid = true;
+    num = Math.trunc(num / 10);
+  }
+  return valid;
+};
+
