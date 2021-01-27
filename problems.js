@@ -4987,3 +4987,21 @@ var arrayRankTransform = function (arr) {
 
   return arr.map(v => rank[v]);
 };
+
+var countBinarySubstrings = function (s) {
+  let result = 0;
+
+  for (let i = 0; i < s.length - 1; i++) {
+    if (s[i] !== s[i + 1]) {
+      result++;
+      let j = 1;
+
+      while (s[i - j] === s[i] && s[i + 1 + j] === s[i + 1]) {
+        result++;
+        j++;
+      }
+    }
+  }
+
+  return result;
+};
