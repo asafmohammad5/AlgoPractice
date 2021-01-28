@@ -5045,3 +5045,14 @@ var containsDuplicate = function (nums) {
   return set.size < nums.length;
 };
 
+var titleToNumber = function (s) {
+  let result = 0;
+  let arr = s.split('').reverse();
+  arr.forEach((c, i) => {
+    let pos = c.charCodeAt(0) - 'A'.charCodeAt(0) + 1;
+    result = Math.pow(26, i) * pos + result;
+  });
+
+  return result;
+};
+
