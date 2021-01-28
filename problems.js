@@ -5056,3 +5056,14 @@ var titleToNumber = function (s) {
   return result;
 };
 
+//SQL
+// SELECT
+// c.name AS Customers
+// FROM
+// Customers AS c
+// LEFT JOIN
+// Orders AS o
+// ON o.customerid = c.id
+// WHERE
+// o.customerid IS NULL
+//SQL
