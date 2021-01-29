@@ -5095,3 +5095,15 @@ var tribonacci = function (n) {
   }
   return fibres[n]
 };
+
+var maxScore = function (s) {
+  let maxim = 0;
+
+  for (let i = 1; i < s.length; i++) {
+    let l = s.slice(0, i).split('0').length - 1;
+    let r = s.slice(i).split('1').length - 1;
+    let sum = l + r;
+    maxim = Math.max(maxim, sum);
+  }
+  return maxim;
+};
