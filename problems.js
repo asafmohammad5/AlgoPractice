@@ -5107,3 +5107,19 @@ var maxScore = function (s) {
   }
   return maxim;
 };
+
+var floodFill = function (image, sr, sc, newColor) {
+  filler(image, sr, sc, image[sr][sc], newColor);
+  return image;
+};
+
+var filler = (image, x, y, oldColor, newColor) => {
+  if (x < 0 || y < 0 || x >= image.length || y >= image[x].length || image[x][y] === newColor || image[x][y] !== oldColor) {
+    return;
+  }
+  image[x][y] = newColor;
+  filler(image, x + 1, y, oldColor, newColor);
+  filler(image, x, y + 1, oldColor, newColor);
+  filler(image, x - 1, y, oldColor, newColor);
+  filler(image, x, y - 1, oldColor, newColor);
+}
