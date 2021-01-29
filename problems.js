@@ -5083,3 +5083,15 @@ var findTarget = function (root, k) {
 
   return false;
 };
+
+var tribonacci = function (n) {
+  let fibres = [];
+  fibres[0] = 0;
+  fibres[1] = 1;
+  fibres[2] = 1;
+
+  for (let i = 3; i <= n; i++) {
+    fibres[i] = fibres[i - 3] + fibres[i - 2] + fibres[i - 1]
+  }
+  return fibres[n]
+};
