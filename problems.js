@@ -5123,3 +5123,41 @@ var filler = (image, x, y, oldColor, newColor) => {
   filler(image, x - 1, y, oldColor, newColor);
   filler(image, x, y - 1, oldColor, newColor);
 }
+
+var shortestCompletingWord = function (licensePlate, words) {
+  let lPlate = licensePlate.split("");
+  let hash = {};
+  let shortest = words.join(" ");
+
+  for (let lett of lPlate) {
+    if (lett === " ") continue;
+    else if (parseInt(lett)) continue;
+    else {
+      lett = lett.toLowerCase();
+      if (!hash[lett]) hash[lett] = 1;
+      else {
+        hash[lett]++
+      }
+    }
+  }
+
+  for (let word of words) {
+    let hash1 = JSON.parse(JSON.stringify(hash));
+    if (isComplete(word, hash1)) {
+      if (shortest.length > word.length) shortest = word;
+    }
+  }
+
+  return shortest;
+};
+
+var isComplete = function (word, hash1) {
+  for (let lett of word) {
+    if (hash1[lett] > 0) hash1[lett]--;
+  }
+  let values = Object.values(hash1);
+  let set = new Set(values);
+  console.log(hash1)
+  console.log(set)
+  return set.size === 1
+}
