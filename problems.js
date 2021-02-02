@@ -5200,3 +5200,22 @@ var twoSum = function (numbers, target) {
 
   }
 };
+
+var isPathCrossing = function (path) {
+  let pos = "00";
+  let x = 0;
+  let y = 0;
+
+  let visited = new Set([pos])
+
+  for (let c of path) {
+    if (c === 'S') y++
+    if (c === 'N') y--
+    if (c === 'W') x++
+    if (c === 'E') x--
+    pos = `${x}${y}`
+    if (visited.has(pos)) return true;
+    visited.add(pos);
+  }
+  return false
+};
