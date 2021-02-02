@@ -5187,3 +5187,16 @@ var mergeTwoLists = function (l1, l2) {
 
   return head.next
 };
+
+var twoSum = function (numbers, target) {
+  let hash = {};
+  for (let i in numbers) {
+    console.log(i)
+    if (target - numbers[i] in hash) {
+      return [hash[target - numbers[i]] + 1, parseInt(i) + 1];
+    }
+
+    hash[numbers[i]] = parseInt(i);
+
+  }
+};
