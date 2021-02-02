@@ -5219,3 +5219,14 @@ var isPathCrossing = function (path) {
   }
   return false
 };
+
+var makeGood = function (s) {
+  if (s.length <= 1) return s;
+
+  for (let i = 0; i < s.length - 1; i++) {
+    if (Math.abs(s.charCodeAt(i) - s.charCodeAt(i + 1)) === 32)
+      return makeGood(s.substring(0, i) + s.substring(i + 2));
+
+  }
+  return s;
+};
