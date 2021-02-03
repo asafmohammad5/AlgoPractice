@@ -5230,3 +5230,15 @@ var makeGood = function (s) {
   }
   return s;
 };
+
+var largestAltitude = function (gain) {
+  let current = 0;
+  let result = 0;
+
+  for (let num of gain) {
+    current += num;
+    result = Math.max(current, result);
+  }
+
+  return result;
+};
