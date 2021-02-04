@@ -5290,3 +5290,21 @@ var relativeSortArray = function (arr1, arr2) {
 
   return results.concat(arr1.sort((a, b) => a - b));
 };
+
+var maximumUnits = function (boxTypes, truckSize) {
+
+  boxTypes.sort((a, b) => b[1] - a[1]);
+  let results = 0;
+
+  for (let i = 0; i < boxTypes.length; ++i) {
+    if (boxTypes[i][0] > truckSize) {
+      results += truckSize * boxTypes[i][1];
+      break;
+    } else {
+      results += boxTypes[i][0] * boxTypes[i][1];
+      truckSize -= boxTypes[i][0];
+    }
+  }
+
+  return results;
+};
