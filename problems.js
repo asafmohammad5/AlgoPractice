@@ -5275,3 +5275,18 @@ var totalMoney = function (n) {
   }
   return results;
 };
+
+var relativeSortArray = function (arr1, arr2) {
+  let results = [];
+
+  for (let i = 0; i < arr2.length; i++) {
+
+    results = results.concat(arr1.filter((j) => j === arr2[i]));
+
+
+    arr1 = arr1.filter((j) => j !== arr2[i]);
+  }
+
+
+  return results.concat(arr1.sort((a, b) => a - b));
+};
