@@ -5242,3 +5242,15 @@ var largestAltitude = function (gain) {
 
   return result;
 };
+
+var sortArrayByParity = function (A) {
+  let results = [];
+  for (let num of A) {
+    if (num % 2 === 0) {
+      results.unshift(num)
+    } else {
+      results.push(num)
+    }
+  }
+  return results;
+};
