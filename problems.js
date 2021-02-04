@@ -5254,3 +5254,24 @@ var sortArrayByParity = function (A) {
   }
   return results;
 };
+
+var totalMoney = function (n) {
+  let counter = 1;
+  let results = 0;
+  let cumm = 1;
+  let i = 0;
+  while (i < n) {
+    if (i !== 0 && i % 7 === 0) {
+      counter++;
+      results += counter;
+      cumm = counter + 1;
+      i++
+    } else {
+      results += cumm;
+      cumm++;
+      i++;
+    }
+
+  }
+  return results;
+};
