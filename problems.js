@@ -5308,3 +5308,39 @@ var maximumUnits = function (boxTypes, truckSize) {
 
   return results;
 };
+
+const coinChange = (coins, amount) => {
+  const results = Array(amount + 1).fill(Infinity);
+  results[0] = 0;
+
+  for (let i = 1; i <= amount; i++) {
+    for (const coin of coins) {
+      if (i - coin >= 0) {
+        results[i] = Math.min(results[i], results[i - coin] + 1);
+        console.log(i - coin)
+        console.log(results)
+        console.log("------")
+      }
+    }
+  }
+
+  return results[amount] === Infinity ? -1 : results[amount];
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
