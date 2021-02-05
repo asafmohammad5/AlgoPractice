@@ -5327,6 +5327,22 @@ const coinChange = (coins, amount) => {
   return results[amount] === Infinity ? -1 : results[amount];
 };
 
+var postorder = function (root) {
+  const results = [];
+  const stack = [root];
+
+  while (stack.length) {
+    let node = stack.pop();
+
+    if (!node) continue;
+
+    results.push(node.val);
+    stack.push(...node.children);
+  }
+
+  return results.reverse();
+};
+
 
 
 
