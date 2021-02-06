@@ -5343,6 +5343,25 @@ var postorder = function (root) {
   return results.reverse();
 };
 
+var preorder = function (root) {
+
+  const results = [];
+  const stack = [root];
+
+  while (stack.length) {
+    let node = stack.shift();
+
+    if (!node) continue;
+
+    results.push(node.val);
+
+    stack.unshift(...node.children);
+  }
+
+  return results;
+
+};
+
 
 
 
