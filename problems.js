@@ -5362,6 +5362,19 @@ var preorder = function (root) {
 
 };
 
+var sortByBits = function (arr) {
+  return arr.sort((a, b) => bitSum(a) - bitSum(b) || a - b);
+};
+
+const bitSum = num => {
+  let sum = 0;
+  while (num) {
+    sum += num & 1;
+    num = num >> 1;
+  }
+  return sum;
+};
+
 
 
 
