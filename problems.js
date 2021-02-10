@@ -5386,6 +5386,21 @@ const bitSum = num => {
 // rating DESC
 //SQL
 
+var commonChars = function (A) {
+  let results = [...A[0]];
+
+  for (let i = 1; i < A.length; i++) {
+    results = results.filter(c => {
+      console.log(c)
+      const l = A[i].length;
+      A[i] = A[i].replace(c, "");
+      console.log(A[i])
+      return l > A[i].length;
+    });
+  }
+  return results;
+};
+
 
 
 
