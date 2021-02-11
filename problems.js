@@ -5401,6 +5401,21 @@ var commonChars = function (A) {
   return results;
 };
 
+var check = function (nums) {
+  let dec = false
+  for (let i = 1; i < nums.length; i += 1) {
+    if (nums[i] < nums[i - 1]) {
+      if (dec) {
+        return false
+      }
+      dec = true
+    }
+  }
+  console.log(dec)
+  console.log(dec ? nums[0] >= nums[nums.length - 1] : true)
+  return dec ? nums[0] >= nums[nums.length - 1] : true
+};
+
 
 
 
