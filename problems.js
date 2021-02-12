@@ -5416,6 +5416,30 @@ var check = function (nums) {
   return dec ? nums[0] >= nums[nums.length - 1] : true
 };
 
+var countStudents = function (students, sandwiches) {
+  let results = 0;
+  let counter = 0;
+
+  while (students.length != 0) {
+    if (sandwiches[0] == students[0]) {
+      sandwiches.shift();
+      students.shift();
+      counter = 0;
+
+    } else {
+      students.push(students[0]);
+      students.shift();
+      counter += 1;
+    }
+
+    if (counter == students.length && counter != 0) {
+      return counter;
+    }
+  }
+
+  return results;
+};
+
 
 
 
