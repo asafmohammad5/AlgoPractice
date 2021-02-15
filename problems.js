@@ -5440,6 +5440,28 @@ var countStudents = function (students, sandwiches) {
   return results;
 };
 
+var maxDepth = function (root) {
+  if (!root) return 0;
+
+  let depth = 0;
+  let queue = [];
+
+  queue.push(root);
+
+  while (queue.length) {
+    let size = queue.length;
+
+    for (let i = 0; i < size; i++) {
+      let node = queue.shift();
+      queue.push(...node.children);
+    }
+
+    depth++;
+  }
+
+  return depth;
+};
+
 
 
 
