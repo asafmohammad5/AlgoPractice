@@ -5462,6 +5462,20 @@ var maxDepth = function (root) {
   return depth;
 };
 
+var trimMean = function (arr) {
+  let l = arr.length;
+  let k = 0.05 * l;
+  let sum = 0;
+
+  arr.sort((a, b) => a - b);
+
+  for (let i = k; i < l - k; i++) {
+    sum += arr[i];
+  };
+
+  return sum / (l - 2 * k);
+};
+
 
 
 
