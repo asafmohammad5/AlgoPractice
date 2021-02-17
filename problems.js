@@ -5486,6 +5486,28 @@ var frequencySort = function (nums) {
   return nums.sort((a, b) => freq[a] - freq[b] || b - a);
 };
 
+var reformatNumber = function (number) {
+  let resultStr = "";
+  let validEles = [];
+
+  for (let ele of number) {
+    if (Number.isInteger(parseInt(ele))) validEles.push(ele)
+  }
+
+  while (validEles.length > 4) {
+    let current = validEles.splice(0, 3);
+    resultStr += current.join("") + "-"
+  };
+
+  if (validEles.length === 4) {
+    return resultStr += validEles.splice(0, 2).join("") + "-" + validEles.splice(0, 2).join("")
+  } else if (validEles.length === 3) {
+    return resultStr += validEles.splice(0, 3).join("")
+  } else {
+    return resultStr += validEles.splice(0, 2).join("")
+  }
+};
+
 
 
 
