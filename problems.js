@@ -5476,6 +5476,16 @@ var trimMean = function (arr) {
   return sum / (l - 2 * k);
 };
 
+var frequencySort = function (nums) {
+  let freq = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    freq[nums[i]] = (freq[nums[i]] || 0) + 1;
+  }
+
+  return nums.sort((a, b) => freq[a] - freq[b] || b - a);
+};
+
 
 
 
