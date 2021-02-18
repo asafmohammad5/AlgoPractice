@@ -5523,6 +5523,38 @@ var threeConsecutiveOdds = function (arr) {
   return oddCount === 3 ? true : false;
 };
 
+var decrypt = function (code, k) {
+  let results = new Array(code.length).fill(0)
+
+  if (k > 0) {
+    for (let i = 0; i < code.length; i++) {
+      let j = i + 1;
+      let count = 0;
+
+      while (count < k) {
+        if (j === code.length) j = 0;
+        results[i] += code[j];
+        count = count + 1;
+        j++;
+      }
+    }
+  }
+  if (k < 0) {
+    for (let i = 0; i < code.length; i++) {
+      let j = i - 1;
+      let count = 0;
+
+      while (count > k) {
+        if (j === -1) j = code.length - 1;
+        results[i] += code[j];
+        count = count - 1;
+        j--;
+      }
+    }
+  }
+  return results;
+};
+
 
 
 
