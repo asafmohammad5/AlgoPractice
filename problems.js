@@ -5508,6 +5508,21 @@ var reformatNumber = function (number) {
   }
 };
 
+var threeConsecutiveOdds = function (arr) {
+  let oddCount = 0;
+
+  for (let num of arr) {
+    if (oddCount === 3) return true;
+
+    if (num % 2 !== 0) {
+      oddCount++;
+    } else {
+      oddCount = 0;
+    }
+  }
+  return oddCount === 3 ? true : false;
+};
+
 
 
 
