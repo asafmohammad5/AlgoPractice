@@ -5555,6 +5555,30 @@ var decrypt = function (code, k) {
   return results;
 };
 
+var countBalls = function (lowLimit, highLimit) {
+  let hash = {};
+
+  for (let i = lowLimit; i <= highLimit; i++) {
+    if (hash[getDigit(i)] > 0) {
+      hash[getDigit(i)]++;
+    } else {
+      hash[getDigit(i)] = 1;
+    }
+  }
+
+  return Math.max(...Object.values(hash));
+};
+
+function getDigit(num) {
+  let digit = 0;
+
+  while (num) {
+    digit += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  return digit;
+}
 
 
 
