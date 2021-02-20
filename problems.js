@@ -5580,6 +5580,18 @@ function getDigit(num) {
   return digit;
 }
 
+var sumOfUnique = function (nums) {
+  let sum = 0;
+  let uniqueObj = {};
+  for (let num of nums) {
+    uniqueObj[num] = 1 + (uniqueObj[num] || 0);
+  };
+  for (let num of nums) {
+    sum += uniqueObj[num] === 1 ? num : 0;
+  };
+  return sum;
+};
+
 
 
 
