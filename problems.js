@@ -5592,6 +5592,31 @@ var sumOfUnique = function (nums) {
   return sum;
 };
 
+var sumZero = function (n) {
+  if (n === 1) return [0];
+  let i = 1;
+  let runningsum = 0;
+  let results = [];
+  results.push(-n);
+  results.push(n);
+  while (results.length < n) {
+    if (results.length + 1 === n && runningsum === 0) {
+      results.push(0);
+      break;
+    } else {
+      if (runningsum === 0) {
+        runningsum += i;
+        results.push(i)
+      } else {
+        runningsum += -i;
+        results.push(-i);
+        i++;
+      }
+    }
+  }
+  return results;
+}; 
+
 
 
 
