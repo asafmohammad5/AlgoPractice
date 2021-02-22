@@ -5634,6 +5634,14 @@ var destCity = function (paths) {
 
 };
 
+var busyStudent = function (startTime, endTime, queryTime) {
+  let results = 0;
+  for (let i = 0; i < endTime.length; i++) {
+    if (queryTime >= startTime[i] && queryTime <= endTime[i]) results++;
+  }
+  return results;
+};
+
 
 
 
