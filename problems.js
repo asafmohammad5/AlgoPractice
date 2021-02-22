@@ -5617,6 +5617,23 @@ var sumZero = function (n) {
   return results;
 }; 
 
+var destCity = function (paths) {
+  let set = new Set();
+
+  for (let path of paths) {
+    let first = path[0];
+    set.add(first);
+
+  };
+
+  for (let path of paths) {
+    let second = path[1];
+    if (!set.has(second)) return second;
+
+  };
+
+};
+
 
 
 
