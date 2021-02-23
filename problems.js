@@ -5642,6 +5642,16 @@ var busyStudent = function (startTime, endTime, queryTime) {
   return results;
 };
 
+var replaceElements = function (arr) {
+  let resultArr = [];
+  resultArr.unshift(-1);
+  let cMax = 0;
+  for (let i = arr.length - 2; i >= 0; i--) {
+    if (cMax < arr[i + 1]) cMax = arr[i + 1];
+    resultArr.unshift(cMax);
+  }
+  return resultArr;
+};
 
 
 
