@@ -5653,6 +5653,27 @@ var replaceElements = function (arr) {
   return resultArr;
 };
 
+var increasingBST = function (root) {
+  let nRoot = null;
+  let cNode = null;
+
+  const depthS = (node) => {
+    if (!node) return;
+    depthS(node.left);
+
+    if (!nRoot) {
+      nRoot = cNode = node;
+    } else {
+      cNode.right = node;
+      cNode = node;
+      node.left = null;
+    }
+    depthS(node.right)
+  }
+  depthS(root);
+  return nRoot;
+};
+
 
 
 
