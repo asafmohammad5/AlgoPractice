@@ -5674,7 +5674,28 @@ var increasingBST = function (root) {
   return nRoot;
 };
 
+var numSpecial = function (mat) {
 
+  const rArr = new Array(mat.length).fill(0)
+  const cArr = new Array(mat[0].length).fill(0)
+  const set = new Set()
+
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[0].length; j++) {
+      if (mat[i][j]) {
+        set.add([i, j])
+        rArr[i]++
+        cArr[j]++
+      }
+    }
+  }
+
+  let count = 0
+  for (const [x, y] of set) {
+    if (rArr[x] === 1 && cArr[y] === 1) count++
+  }
+  return count
+}
 
 
 
