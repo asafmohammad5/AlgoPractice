@@ -5694,8 +5694,25 @@ var numSpecial = function (mat) {
   for (const [x, y] of set) {
     if (rArr[x] === 1 && cArr[y] === 1) count++
   }
-  return count
+  return count;
 }
+
+var minOperations = function (logs) {
+  let numOperations = 0;
+
+  for (let log of logs) {
+    if (log === "../") {
+      if (numOperations > 0) {
+        numOperations--;
+      }
+    }
+    else if (log === "./") continue;
+    else {
+      numOperations++;
+    }
+  }
+  return numOperations;
+};
 
 
 
