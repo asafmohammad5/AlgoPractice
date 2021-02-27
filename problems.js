@@ -5714,6 +5714,21 @@ var minOperations = function (logs) {
   return numOperations;
 };
 
+var specialArray = function (nums) {
+
+  for (let i = 1; i <= nums.length; i++) {
+    if (i === counter(i, nums)) return i;
+  }
+  return -1;
+
+  function counter(i, nums) {
+    let count = 0;
+    for (const num of nums) {
+      if (num >= i) count++;
+    }
+    return count;
+  }
+};
 
 
 
