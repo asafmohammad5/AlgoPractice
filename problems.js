@@ -5730,6 +5730,17 @@ var specialArray = function (nums) {
   }
 };
 
+var canFormArray = function (arr, pieces) {
+  let map = new Map();
+  let res = [];
+
+  pieces.forEach((x) => map.set(x[0], x));
+  console.log(map)
+  arr.forEach((x) => map.has(x) && res.push(...map.get(x)));
+
+  return arr.every((x, i) => x == res[i]);
+};
+
 
 
 
