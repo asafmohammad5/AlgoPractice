@@ -5767,6 +5767,16 @@ var minOperations = function (s) {
   return Math.min(count1, count2);
 };
 
+var largestPerimeter = function (A) {
+  A.sort((a, b) => a - b);
+
+  for (let i = A.length - 1; i > 1; i--) {
+    if (A[i] < A[i - 1] + A[i - 2]) {
+      return A[i] + A[i - 1] + A[i - 2];
+    }
+  }
+  return 0;
+};
 
 
 
