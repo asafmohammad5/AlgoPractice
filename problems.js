@@ -5789,8 +5789,14 @@ var maxProfit = function (prices) {
   return profit;
 };
 
-
-
+var getNoZeroIntegers = function (n) {
+  let check = 1
+  while (check < n) {
+    let num = n - check
+    if (!(/[0]/.test(num)) && !(/[0]/.test(check))) return [check, num]
+    check++
+  }
+};
 
 
 
