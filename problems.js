@@ -5798,6 +5798,12 @@ var getNoZeroIntegers = function (n) {
   }
 };
 
+var findKthPositive = function (arr, k) {
+  let set = new Set(arr);
+  for (let i = 1; ; ++i)
+    if (!set.has(i) && !--k) return i;
+};
+
 
 
 
