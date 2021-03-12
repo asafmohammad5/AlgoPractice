@@ -5825,9 +5825,27 @@ var generate = function (numRows) {
   }
 
   return result;
+}
 
+var reformat = function (s) {
+  let hash = { "lett": [], "num": [] };
 
+  for (let ele of s) {
+    if (Number.isInteger(parseInt(ele))) {
+      hash["num"].push(ele)
+    } else {
+      hash["lett"].push(ele)
+    }
+  }
+  let { lett, num } = hash;
 
+  if (lett.length < num.length) {
+    [lett, num] = [num, lett];
+  }
 
+  return lett.length - num.length <= 1
+    ? lett.map((x, i) => x + (num[i] ? num[i] : '')).join('')
+    : '';
+};
 
 
