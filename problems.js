@@ -5848,4 +5848,11 @@ var reformat = function (s) {
     : '';
 };
 
+var missingNumber = function (nums) {
+  let len = nums.length;
+  let sum1 = (len * (len + 1)) / 2;
+  let sum2 = nums.reduce((a, c) => a + c);
+  return sum1 - sum2;
+};
+
 
