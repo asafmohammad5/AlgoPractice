@@ -5855,4 +5855,22 @@ var missingNumber = function (nums) {
   return sum1 - sum2;
 };
 
+let arr = [];
+dfs(root);
+let result = arr[1] - arr[0];
+for (let i = 1; i < arr.length - 1; i++) {
+  result = Math.min(result, arr[i + 1] - arr[i]);
+}
+
+function dfs(root) {
+  if (root != null) {
+    dfs(root.left);
+    arr.push(root.val);
+    dfs(root.right);
+  }
+}
+
+return result;
+};
+
 
