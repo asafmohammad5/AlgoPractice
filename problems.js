@@ -5874,4 +5874,14 @@ var getMinimumDifference = function (root) {
   return result;
 };
 
+var countOdds = function (low, high) {
+  let count = 0;
+
+  while (low <= high) {
+    if (low % 2 !== 0) count++;
+    low++;
+  }
+  return count;
+};
+
 
