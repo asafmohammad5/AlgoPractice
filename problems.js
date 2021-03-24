@@ -5875,13 +5875,15 @@ var getMinimumDifference = function (root) {
 };
 
 var countOdds = function (low, high) {
-  let count = 0;
+  let oddCount = 0;
 
   while (low <= high) {
-    if (low % 2 !== 0) count++;
+    if (low % 2 !== 0) oddCount++;
     low++;
   }
-  return count;
+  return oddCount;
 };
+
+
 
 
