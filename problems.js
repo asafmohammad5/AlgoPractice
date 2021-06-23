@@ -5953,5 +5953,17 @@ const findCenter = (edges) => {
   return edges[1][0] === edges[0][0] || edges[1][0] === edges[0][1] ? edges[1][0] : edges[1][1];
 };
 
+// ###### RUBY ######
+// def running_sum(nums)
+//    total = nums[0]
+//    for i in 1...nums.length
+//          nums[i] = total += nums[i]
+//    end
+//    return nums
+// end
+
+
+
+// ###### RUBY ######
 
 
