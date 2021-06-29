@@ -5962,7 +5962,17 @@ const findCenter = (edges) => {
 //    return nums
 // end
 
-
+// def maximum_wealth(accounts)
+//   richest = 0
+//   for nums in accounts
+//         richest1 = 0
+//         for num in nums
+//             richest1 += num
+//         end
+//         richest1 > richest ? richest = richest1 : richest
+//   end
+//   richest
+// end
 
 // ###### RUBY ######
 
