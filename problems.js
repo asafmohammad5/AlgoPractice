@@ -5995,3 +5995,13 @@ const decrypt = (code, k) => {
 
   return k > 0 ? decode(code, k) : decode(code.reverse(), -k).reverse();
 };
+
+var isUnivalTree = function (root) {
+  if (!root) return true;
+  const trav = (node) => {
+    if (!node) return true;
+    if (root.val !== node.val) return false;
+    return trav(node.left) && trav(node.right);
+  };
+  return trav(root);
+};
